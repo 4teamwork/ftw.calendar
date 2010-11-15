@@ -1,0 +1,14 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="ftw.calendar">
+
+  <genericsetup:registerProfile
+      name="default"
+      title="4teamwork Calendar"
+      directory="profiles/default"
+      description='Extension profile for the "4teamwork Calendar" Plone theme.'
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+</configure>

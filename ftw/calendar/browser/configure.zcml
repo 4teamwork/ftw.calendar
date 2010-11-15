@@ -1,0 +1,56 @@
+<configure 
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:gs="http://namespaces.zope.org/genericsetup"
+    i18n_domain="ftw.calendar">
+          
+  <include package="plone.app.contentmenu" />
+
+  <browser:page
+      for="Products.ATContentTypes.interfaces.IATTopic"
+      name="ftwcalendar_view"
+      class=".calendarview.CalendarView"
+      template="calendarview.pt"
+      allowed_interface=".calendarview.ICalendarView"
+      layer=".interfaces.IFtwCalendarLayer"
+      permission="zope.Public"
+      />
+
+  <browser:menuItem
+        for="Products.ATContentTypes.interfaces.IATTopic"
+        menu="plone_displayviews"
+        title="Calendar view"
+        action="ftwcalendar_view"
+        layer=".interfaces.IFtwCalendarLayer"
+        description="Calendar view"
+    />
+          
+  <browser:page
+      for="*"
+      name="ftwcalendarupdate_view"
+      class=".calendarupdateview.CalendarupdateView"
+      template="calendarview.pt"
+      allowed_interface=".calendarupdateview.ICalendarupdateView"
+      permission="zope.Public"
+      layer=".interfaces.IFtwCalendarLayer"
+      />
+
+  <browser:page
+      for="*"
+      name="calendar_drop"
+      class=".calendarupdateview.CalendarDropView"
+      allowed_interface=".calendarview.ICalendarView"
+      permission="zope.Public"
+      layer=".interfaces.IFtwCalendarLayer"
+      />
+
+  <browser:page
+      for="*"
+      name="calendar_resize"
+      class=".calendarupdateview.CalendarResizeView"
+      allowed_interface=".calendarview.ICalendarView"
+      permission="zope.Public"
+      layer=".interfaces.IFtwCalendarLayer"
+      />
+
+</configure>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<layers>
+
+ <layer name="ftwcalendar"
+        interface="ftw.calendar.browser.interfaces.IFtwCalendarLayer" />
+        
+</layers>

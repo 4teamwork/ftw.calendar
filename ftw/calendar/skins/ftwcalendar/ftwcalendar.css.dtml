@@ -1,0 +1,11 @@
+/* <dtml-with base_properties> (do not remove this :) */
+/* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
+
+div.fc-event a {
+    color: inherit;
+}
+div.fc-event.editable a {
+    background-image: url(&dtml-portal_url;/transp.png);
+}
+
+/* </dtml-with> */
