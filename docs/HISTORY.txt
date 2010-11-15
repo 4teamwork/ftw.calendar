@@ -4,7 +4,8 @@ Changelog
 
 1.9
 ---
-
+* updated fullcalendar to version 1.4.8
+  [fsprenger]
 
 1.8
 ---
