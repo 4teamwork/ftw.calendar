@@ -5,7 +5,9 @@ Changelog
 1.10
 ----
 
-
+* do not compress fullcallendar.min.js in JSRegistry.
+  [naro]
+  
 1.9
 ---
 * updated fullcalendar to version 1.4.8
