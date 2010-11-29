@@ -5,6 +5,9 @@ Changelog
 1.10
 ----
 
+* solved problem with hidden osx files in previous release
+  [fsprenger]
+
 * do not compress fullcallendar.min.js in JSRegistry.
   [naro]
   
