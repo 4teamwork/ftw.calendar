@@ -1,16 +1,261 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ftw.calendar\n"
-"POT-Creation-Date: 2010-08-18 11:33+0000\n"
+"POT-Creation-Date: 2011-01-25 16:29+0000\n"
 "PO-Revision-Date: 2010-09-10 12:33+0100\n"
 "Last-Translator: Radim Novotny <novotny.radim@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: cs\n"
+"Language-Name: Czech\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Language-Team: \n"
+"Domain: DOMAIN\n"
 
+#. Default: "Calendar view"
+#: ./browser/configure.zcml:14
 msgid "Calendar view"
 msgstr "Kalendář"
+
+#. Default: "All day"
+#: ./browser/calendar_config.pt:68
+msgid "all_day"
+msgstr "Celý den"
+
+#. Default: "h:mm tt"
+#: ./browser/calendar_config.pt:66
+msgid "axis_format"
+msgstr "H(:mm)"
+
+#. Default: "day"
+#: ./browser/calendar_config.pt:55
+msgid "button_day"
+msgstr "den"
+
+#. Default: "month"
+#: ./browser/calendar_config.pt:53
+msgid "button_month"
+msgstr "měsíc"
+
+#. Default: "today"
+#: ./browser/calendar_config.pt:52
+msgid "button_today"
+msgstr "dnes"
+
+#. Default: "week"
+#: ./browser/calendar_config.pt:54
+msgid "button_week"
+msgstr "týden"
+
+#. Default: "Sunday"
+#: ./browser/calendar_config.pt:33
+msgid "day_1"
+msgstr "Neděle"
+
+#. Default: "Monday"
+#: ./browser/calendar_config.pt:34
+msgid "day_2"
+msgstr "Pondělí"
+
+#. Default: "Tuesday"
+#: ./browser/calendar_config.pt:35
+msgid "day_3"
+msgstr "Úterý"
+
+#. Default: "Wednesday"
+#: ./browser/calendar_config.pt:36
+msgid "day_4"
+msgstr "Středa"
+
+#. Default: "Thursday"
+#: ./browser/calendar_config.pt:37
+msgid "day_5"
+msgstr "Čtvrtek"
+
+#. Default: "Friday"
+#: ./browser/calendar_config.pt:38
+msgid "day_6"
+msgstr "Pátek"
+
+#. Default: "Saturday"
+#: ./browser/calendar_config.pt:39
+msgid "day_7"
+msgstr "Sobota"
+
+#. Default: "Sun"
+#: ./browser/calendar_config.pt:40
+msgid "day_short_1"
+msgstr "Ne"
+
+#. Default: "Mon"
+#: ./browser/calendar_config.pt:41
+msgid "day_short_2"
+msgstr "Po"
+
+#. Default: "Tues"
+#: ./browser/calendar_config.pt:42
+msgid "day_short_3"
+msgstr "Út"
+
+#. Default: "Wed"
+#: ./browser/calendar_config.pt:43
+msgid "day_short_4"
+msgstr "St"
+
+#. Default: "Thurs"
+#: ./browser/calendar_config.pt:44
+msgid "day_short_5"
+msgstr "Čt"
+
+#. Default: "Fri"
+#: ./browser/calendar_config.pt:45
+msgid "day_short_6"
+msgstr "Pá"
+
+#. Default: "Sat"
+#: ./browser/calendar_config.pt:46
+msgid "day_short_7"
+msgstr "So"
+
+#. Default: "January"
+#: ./browser/calendar_config.pt:9
+msgid "month_1"
+msgstr "Leden"
+
+#. Default: "October"
+#: ./browser/calendar_config.pt:18
+msgid "month_10"
+msgstr "Říjen"
+
+#. Default: "November"
+#: ./browser/calendar_config.pt:19
+msgid "month_11"
+msgstr "Listopad"
+
+#. Default: "December"
+#: ./browser/calendar_config.pt:20
+msgid "month_12"
+msgstr "Prosinec"
+
+#. Default: "February"
+#: ./browser/calendar_config.pt:10
+msgid "month_2"
+msgstr "Únor"
+
+#. Default: "March"
+#: ./browser/calendar_config.pt:11
+msgid "month_3"
+msgstr "Březen"
+
+#. Default: "April"
+#: ./browser/calendar_config.pt:12
+msgid "month_4"
+msgstr "Duben"
+
+#. Default: "May"
+#: ./browser/calendar_config.pt:13
+msgid "month_5"
+msgstr "Květen"
+
+#. Default: "June"
+#: ./browser/calendar_config.pt:14
+msgid "month_6"
+msgstr "Červen"
+
+#. Default: "July"
+#: ./browser/calendar_config.pt:15
+msgid "month_7"
+msgstr "Červenec"
+
+#. Default: "August"
+#: ./browser/calendar_config.pt:16
+msgid "month_8"
+msgstr "Srpen"
+
+#. Default: "September"
+#: ./browser/calendar_config.pt:17
+msgid "month_9"
+msgstr "Září"
+
+#. Default: "Jan"
+#: ./browser/calendar_config.pt:21
+msgid "month_short_1"
+msgstr "Led"
+
+#. Default: "Oct"
+#: ./browser/calendar_config.pt:30
+msgid "month_short_10"
+msgstr "Říj"
+
+#. Default: "Nov"
+#: ./browser/calendar_config.pt:31
+msgid "month_short_11"
+msgstr "Lis"
+
+#. Default: "Dec"
+#: ./browser/calendar_config.pt:32
+msgid "month_short_12"
+msgstr "Pro"
+
+#. Default: "Feb"
+#: ./browser/calendar_config.pt:22
+msgid "month_short_2"
+msgstr "Úno"
+
+#. Default: "Mar"
+#: ./browser/calendar_config.pt:23
+msgid "month_short_3"
+msgstr "Bře"
+
+#. Default: "Apr"
+#: ./browser/calendar_config.pt:24
+msgid "month_short_4"
+msgstr "Dub"
+
+#. Default: "May"
+#: ./browser/calendar_config.pt:25
+msgid "month_short_5"
+msgstr "Kvě"
+
+#. Default: "June"
+#: ./browser/calendar_config.pt:26
+msgid "month_short_6"
+msgstr "Čer"
+
+#. Default: "July"
+#: ./browser/calendar_config.pt:27
+msgid "month_short_7"
+msgstr "Čvc"
+
+#. Default: "Aug"
+#: ./browser/calendar_config.pt:28
+msgid "month_short_8"
+msgstr "Srp"
+
+#. Default: "Sept"
+#: ./browser/calendar_config.pt:29
+msgid "month_short_9"
+msgstr "Zář"
+
+#. Default: "h:mm tt"
+#: ./browser/calendar_config.pt:71
+msgid "time_format"
+msgstr "H(:mm)"
+
+#. Default: "dddd, MMM d, yyyy"
+#: ./browser/calendar_config.pt:60
+msgid "title_day"
+msgstr "dddd, d. MMMM yyyy"
+
+#. Default: "MMMM yyyy"
+#: ./browser/calendar_config.pt:58
+msgid "title_month"
+msgstr "MMMM yyyy"
+
+#. Default: "MMM d[ yyyy]{ - [ MMM] d yyyy}"
+#: ./browser/calendar_config.pt:59
+msgid "title_week"
+msgstr "d[ yyyy]. MMMM{ - d.[ MMMM] yyyy}"
 

@@ -1,31 +1,13 @@
-from zope.interface import implements, Interface
-
 from Products.Five import BrowserView
 from DateTime import DateTime
 
 #from ftw.calendar import calendarMessageFactory as _
 import simplejson as json
 
-class ICalendarupdateView(Interface):
-    """
-    Calendarupdate view interface
-    """
-
-    def test():
-        """ test method"""
-
-
 class CalendarupdateView(BrowserView):
     """
     Calendarupdate browser view
     """
-    implements(ICalendarupdateView)
-
-    def __init__(self, context, request):
-        self.context = context
-        self.request = request
-
-
 
     def __call__(self, *args, **kw):
         """Render JS Initialization code"""
@@ -103,4 +85,4 @@ class CalendarResizeView(BrowserView):
         obj.setEndDate(endDate)
         obj.reindexObject()
         return True
-
+        

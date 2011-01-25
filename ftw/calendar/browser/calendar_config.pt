@@ -1,0 +1,113 @@
+<tal:script i18n:domain="ftw.calendar">
+jq(document).ready(function() {
+	jq('#calendar').fullCalendar({
+		header: {
+			left: 'prev,next today',
+			center: 'title',
+			right: 'month,agendaWeek,agendaDay'
+		},
+		monthNames: ['<tal:trans i18n:translate="month_1">January</tal:trans>',
+		    '<tal:trans i18n:translate="month_2">February</tal:trans>',
+		    '<tal:trans i18n:translate="month_3">March</tal:trans>',
+		    '<tal:trans i18n:translate="month_4">April</tal:trans>',
+		    '<tal:trans i18n:translate="month_5">May</tal:trans>',
+		    '<tal:trans i18n:translate="month_6">June</tal:trans>',
+		    '<tal:trans i18n:translate="month_7">July</tal:trans>',
+		    '<tal:trans i18n:translate="month_8">August</tal:trans>',
+		    '<tal:trans i18n:translate="month_9">September</tal:trans>',
+		    '<tal:trans i18n:translate="month_10">October</tal:trans>',
+		    '<tal:trans i18n:translate="month_11">November</tal:trans>',
+		    '<tal:trans i18n:translate="month_12">December</tal:trans>'],
+		monthNamesShort: ['<tal:trans i18n:translate="month_short_1">Jan</tal:trans>',
+		    '<tal:trans i18n:translate="month_short_2">Feb</tal:trans>',
+		    '<tal:trans i18n:translate="month_short_3">Mar</tal:trans>',
+		    '<tal:trans i18n:translate="month_short_4">Apr</tal:trans>',
+		    '<tal:trans i18n:translate="month_short_5">May</tal:trans>',
+		    '<tal:trans i18n:translate="month_short_6">June</tal:trans>',
+		    '<tal:trans i18n:translate="month_short_7">July</tal:trans>',
+		    '<tal:trans i18n:translate="month_short_8">Aug</tal:trans>',
+		    '<tal:trans i18n:translate="month_short_9">Sept</tal:trans>',
+		    '<tal:trans i18n:translate="month_short_10">Oct</tal:trans>',
+		    '<tal:trans i18n:translate="month_short_11">Nov</tal:trans>',
+		    '<tal:trans i18n:translate="month_short_12">Dec</tal:trans>'],
+		dayNames: ['<tal:trans i18n:translate="day_1">Sunday</tal:trans>',
+    		'<tal:trans i18n:translate="day_2">Monday</tal:trans>',
+    		'<tal:trans i18n:translate="day_3">Tuesday</tal:trans>',
+    		'<tal:trans i18n:translate="day_4">Wednesday</tal:trans>',
+    		'<tal:trans i18n:translate="day_5">Thursday</tal:trans>',
+    		'<tal:trans i18n:translate="day_6">Friday</tal:trans>',
+    		'<tal:trans i18n:translate="day_7">Saturday</tal:trans>'],
+		dayNamesShort: ['<tal:trans i18n:translate="day_short_1">Sun</tal:trans>',
+    		'<tal:trans i18n:translate="day_short_2">Mon</tal:trans>',
+    		'<tal:trans i18n:translate="day_short_3">Tues</tal:trans>',
+    		'<tal:trans i18n:translate="day_short_4">Wed</tal:trans>',
+    		'<tal:trans i18n:translate="day_short_5">Thurs</tal:trans>',
+    		'<tal:trans i18n:translate="day_short_6">Fri</tal:trans>',
+    		'<tal:trans i18n:translate="day_short_7">Sat</tal:trans>'],
+		buttonText: {
+        	prev: '&nbsp;&#9668;&nbsp;',
+        	next: '&nbsp;&#9658;&nbsp;',
+        	prevYear: '&nbsp;&lt;&lt;&nbsp;',
+        	nextYear: '&nbsp;&gt;&gt;&nbsp;',
+        	today: '<tal:trans i18n:translate="button_today">today</tal:trans>',
+        	month: '<tal:trans i18n:translate="button_month">month</tal:trans>',
+        	week: '<tal:trans i18n:translate="button_week">week</tal:trans>',
+        	day: '<tal:trans i18n:translate="button_day">day</tal:trans>'
+        },
+		titleFormat: {
+            month: '<tal:trans i18n:translate="title_month">MMMM yyyy</tal:trans>',
+            week: '<tal:trans i18n:translate="title_week">MMM d[ yyyy]{ - [ MMM] d yyyy}</tal:trans>',
+            day: '<tal:trans i18n:translate="title_day">dddd, MMM d, yyyy</tal:trans>'
+        },
+		editable: true,
+		startParam: "start:int",
+		endParam: "end:int",
+		events: "ftwcalendar_update",
+    	axisFormat: '<tal:trans i18n:translate="axis_format">h:mm tt</tal:trans>',
+        allDaySlot: true,
+        allDayText: '<tal:trans i18n:translate="all_day">All day</tal:trans>',
+        firstDay: <span tal:replace="view/first_day">0</span>,
+        weekMode: "liquid",
+        timeFormat: '<tal:trans i18n:translate="time_format">h:mm tt</tal:trans>',
+        eventRender: function(event, element) {
+            element.find("a").attr('title', event.description);
+            return element
+        },
+        eventDrop: function(event, dayDelta, minuteDelta) {
+            jq.ajax({
+                type: 'POST',
+                url: './ftwcalendar_drop',
+                data: {
+                    'event': event.id,
+                    'dayDelta': dayDelta,
+                    'minuteDelta': minuteDelta
+                },
+                success: function(msg) {      
+                }
+            });
+        },
+        eventResize: function(event, dayDelta, minuteDelta, revertFunc) {
+            jq.ajax({
+                type: 'POST',
+                url: './ftwcalendar_resize',
+                data: {
+                    'event': event.id,
+                    'dayDelta': dayDelta,
+                    'minuteDelta': minuteDelta
+                },
+                success:   function(msg) {
+                },
+                error: revertFunc
+            });
+        },
+        loading: function(bool) {
+            if (bool) {
+                jq('#kss-spinner').show();
+            } else {
+                jq('#kss-spinner').hide();
+            }
+        }
+
+	});
+});
+</tal:script>

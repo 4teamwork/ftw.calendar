@@ -1,6 +1,18 @@
 /* <dtml-with base_properties> (do not remove this :) */
 /* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
 
+div.fc {
+    line-height: 1.1;
+}
+#content div.fc table {
+    margin-bottom: 0;
+}
+#content div.fc a {
+    border-style: none solid;
+}
+.fc-view {
+    z-index: 0;
+}
 div.fc-event a {
     color: inherit;
 }

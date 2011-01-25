@@ -7,7 +7,7 @@
       name="default"
       title="4teamwork Calendar"
       directory="profiles/default"
-      description='Extension profile for the "4teamwork Calendar" Plone theme.'
+      description='Calendar view based on FullCalendar.'
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 

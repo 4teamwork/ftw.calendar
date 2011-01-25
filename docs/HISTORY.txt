@@ -5,6 +5,21 @@ Changelog
 1.11
 ----
 
+* Made first day of the week option use the setting in Plone's calendar
+  control panel.
+  [yomatters]
+
+* Updated product description in install profile.
+  [yomatters]
+
+* Changed settings to use Plone's normal i18n machinery.
+  [yomatters]
+
+* Improved default styling in Sunburst on Plone 4.
+  [yomatters]
+
+* Send drop and resize arguments as JSON for jQuery 1.4 compatibility.
+  [yomatters]
 
 1.10
 ----
