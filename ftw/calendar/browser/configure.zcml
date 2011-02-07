@@ -1,21 +1,37 @@
-<configure 
+<configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
+	xmlns:zcml="http://namespaces.zope.org/zcml"
     xmlns:gs="http://namespaces.zope.org/genericsetup"
     i18n_domain="ftw.calendar">
-    
+
   <include package="plone.app.contentmenu" />
 
+ <!-- Plone 3 -->
   <browser:page
-      for="Products.ATContentTypes.interfaces.IATTopic"
+	  zcml:condition="installed Products.ATContentTypes.interface.topic"
+      for="Products.ATContentTypes.interface.topic.IATTopic"
       name="ftwcalendar_view"
-      template="calendarview.pt"
       menu="plone_displayviews"
       title="Calendar view"
+      template="calendarview.pt"
       layer=".interfaces.IFtwCalendarLayer"
       permission="zope.Public"
       />
-          
+
+ <!-- Plone 4 -->
+  <browser:page
+	  zcml:condition="not-installed Products.ATContentTypes.interface.topic"
+      for="Products.ATContentTypes.interfaces.topic.IATTopic"
+      name="ftwcalendar_view"
+      menu="plone_displayviews"
+      title="Calendar view"
+      template="calendarview.pt"
+      layer=".interfaces.IFtwCalendarLayer"
+      permission="zope.Public"
+      />
+
+
   <browser:page
       for="*"
       name="ftwcalendar_update"
@@ -40,7 +56,7 @@
       permission="zope.Public"
       layer=".interfaces.IFtwCalendarLayer"
       />
-      
+
   <browser:page
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
       name="ftwcalendar_config.js"

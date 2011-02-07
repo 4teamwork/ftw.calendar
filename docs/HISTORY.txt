@@ -5,6 +5,10 @@ Changelog
 1.11
 ----
 
+* Updated browser/configure.zcml for compatibility with plone 3 and 4.
+  There are different paths to the IATTopic interface
+  [eschmutz]
+
 * Made first day of the week option use the setting in Plone's calendar
   control panel.
   [yomatters]
@@ -29,7 +33,7 @@ Changelog
 
 * do not compress fullcallendar.min.js in JSRegistry.
   [naro]
-  
+
 1.9
 ---
 * updated fullcalendar to version 1.4.8
@@ -40,14 +44,14 @@ Changelog
 
 * added Czech translation
   [naro]
-  
-* added menuItem declaration to provide nice and translatable Display menu 
+
+* added menuItem declaration to provide nice and translatable Display menu
   item
   [naro]
-  
+
 * fixed zcml declarations (added layer)
   [naro]
-  
+
 * added .po files
   [naro]
 
@@ -62,8 +66,8 @@ Changelog
 
 1.5
 ---
-* configured english as a fallback-language if there is no translation for the 
-  current language 
+* configured english as a fallback-language if there is no translation for the
+  current language
 * added a custom css file to override styles defined in fullcalendar.css
 * highlight the current users own events
 * use the styles defined in members.css to mark the state of an event
