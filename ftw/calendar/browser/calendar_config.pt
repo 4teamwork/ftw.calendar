@@ -71,7 +71,6 @@ jq(document).ready(function() {
         timeFormat: '<tal:trans i18n:translate="time_format">h:mm tt</tal:trans>',
         eventRender: function(event, element) {
             element.find("a").attr('title', event.description);
-            return element
         },
         eventDrop: function(event, dayDelta, minuteDelta) {
             jq.ajax({

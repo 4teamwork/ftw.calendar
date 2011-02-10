@@ -5,6 +5,13 @@ Changelog
 1.11
 ----
 
+* Updated fullcalendar to version 1.4.10. Changelog for fullcalendar can be 
+  found here: http://arshaw.com/js/fullcalendar/changelog.txt
+  [fsprenger]
+
+* Fixed a js bug in the configuration
+  [fsprenger]
+  
 * Fixing Plone 3 compatibility with a zcml.condition
   [fsprenger]
   
