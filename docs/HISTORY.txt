@@ -5,6 +5,9 @@ Changelog
 1.11
 ----
 
+* Fixing Plone 3 compatibility with a zcml.condition
+  [fsprenger]
+  
 * Made first day of the week option use the setting in Plone's calendar
   control panel.
   [yomatters]
