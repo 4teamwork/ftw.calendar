@@ -8,9 +8,11 @@ Features
 
 * Generic: ftw.calendar doesn't care about the event objects, it only needs a collection in which the resulting brains have a start and a end attribute. 
 
-* Lightweight: the only requirement (apart from plone of course) is simplejson. Optionally, if you want to enable resizing of events and the drag and drop functionality, you can install jquery.ui but thats up to you.
+* Lightweight: the only requirement (apart from plone of course) is simplejson. Optionally, if you want to enable resizing of events and the drag and drop functionality, you can install jquery.ui but it is not required.
   
-* Internationalized: currently ftw.calendar is available in german and english. Feel free to add more translations. The translations and date formats are located in the javascript files in the skin directory.
+* Internationalized: currently ftw.calendar is available in german, english and czech. Feel free to add more translations. 
+
+* Integrated: ftw.calendar cares about your calendar settings. First day of the week is respected and displayed accordingly.
 
 Usage
 =====
