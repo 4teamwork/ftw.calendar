@@ -242,7 +242,7 @@ msgstr "Sep"
 #. Default: "h:mm tt"
 #: ./browser/calendar_config.pt:71
 msgid "time_format"
-msgstr "H(:mm)"
+msgstr "H:mm"
 
 #. Default: "dddd, MMM d, yyyy"
 #: ./browser/calendar_config.pt:60

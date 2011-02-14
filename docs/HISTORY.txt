@@ -4,6 +4,9 @@ Changelog
 
 1.12
 ----
+* Change default time_format for german language (show H:mm). 
+  [14.02.2011, mathias.leimgruber]
+
 * Call queryCatalog on context.aq_inner for proper ATRelativePathCriterion
   support.
   [14.02.2011, mathias.leimgruber]
