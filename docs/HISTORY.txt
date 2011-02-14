@@ -4,7 +4,12 @@ Changelog
 
 1.12
 ----
+* Call queryCatalog on context.aq_inner for proper ATRelativePathCriterion
+  support.
+  [14.02.2011, mathias.leimgruber]
 
+* PEP8 on calendarupdateview.
+  [14.02.2011, mathias.leimgruber]
 
 1.11
 ----
