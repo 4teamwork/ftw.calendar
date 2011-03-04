@@ -5,10 +5,11 @@ Changelog
 1.13
 ----
 
+* Fixed README.txt [thomasdesvenain]
 
 1.12
 ----
-* Change default time_format for german language (show H:mm). 
+* Change default time_format for german language (show H:mm).
   [14.02.2011, mathias.leimgruber]
 
 * Call queryCatalog on context.aq_inner for proper ATRelativePathCriterion
@@ -21,16 +22,16 @@ Changelog
 1.11
 ----
 
-* Updated fullcalendar to version 1.4.10. Changelog for fullcalendar can be 
+* Updated fullcalendar to version 1.4.10. Changelog for fullcalendar can be
   found here: http://arshaw.com/js/fullcalendar/changelog.txt
   [fsprenger]
 
 * Fixed a js bug in the configuration
   [fsprenger]
-  
+
 * Fixing Plone 3 compatibility with a zcml.condition
   [fsprenger]
-  
+
 * Made first day of the week option use the setting in Plone's calendar
   control panel.
   [yomatters]
@@ -55,7 +56,7 @@ Changelog
 
 * do not compress fullcallendar.min.js in JSRegistry.
   [naro]
-  
+
 1.9
 ---
 * updated fullcalendar to version 1.4.8
@@ -66,14 +67,14 @@ Changelog
 
 * added Czech translation
   [naro]
-  
-* added menuItem declaration to provide nice and translatable Display menu 
+
+* added menuItem declaration to provide nice and translatable Display menu
   item
   [naro]
-  
+
 * fixed zcml declarations (added layer)
   [naro]
-  
+
 * added .po files
   [naro]
 
@@ -88,8 +89,8 @@ Changelog
 
 1.5
 ---
-* configured english as a fallback-language if there is no translation for the 
-  current language 
+* configured english as a fallback-language if there is no translation for the
+  current language
 * added a custom css file to override styles defined in fullcalendar.css
 * highlight the current users own events
 * use the styles defined in members.css to mark the state of an event
