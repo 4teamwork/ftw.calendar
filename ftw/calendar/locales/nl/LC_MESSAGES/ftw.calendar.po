@@ -1,0 +1,261 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ftw.calendar\n"
+"POT-Creation-Date: 2011-03-05 20:00+0000\n"
+"PO-Revision-Date: 2011-03-05 20:00+0000\n"
+"Last-Translator: Rob Gietema <rob@fourdigits.nl>\n"
+"Language-Team: Dutch <rob@fourdigits.nl>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: nl\n"
+"Language-Name: Dutch\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#. Default: "Calendar view"
+#: ./browser/configure.zcml:14
+msgid "Calendar view"
+msgstr "Kalender weergave"
+
+#. Default: "All day"
+#: ./browser/calendar_config.pt:68
+msgid "all_day"
+msgstr "Hele dag"
+
+#. Default: "h:mm tt"
+#: ./browser/calendar_config.pt:66
+msgid "axis_format"
+msgstr "h:mm tt"
+
+#. Default: "day"
+#: ./browser/calendar_config.pt:55
+msgid "button_day"
+msgstr "dag"
+
+#. Default: "month"
+#: ./browser/calendar_config.pt:53
+msgid "button_month"
+msgstr "maand"
+
+#. Default: "today"
+#: ./browser/calendar_config.pt:52
+msgid "button_today"
+msgstr "vandaag"
+
+#. Default: "week"
+#: ./browser/calendar_config.pt:54
+msgid "button_week"
+msgstr "week"
+
+#. Default: "Sunday"
+#: ./browser/calendar_config.pt:33
+msgid "day_1"
+msgstr "Zondag"
+
+#. Default: "Monday"
+#: ./browser/calendar_config.pt:34
+msgid "day_2"
+msgstr "Maandag"
+
+#. Default: "Tuesday"
+#: ./browser/calendar_config.pt:35
+msgid "day_3"
+msgstr "Dinsdag"
+
+#. Default: "Wednesday"
+#: ./browser/calendar_config.pt:36
+msgid "day_4"
+msgstr "Woensdag"
+
+#. Default: "Thursday"
+#: ./browser/calendar_config.pt:37
+msgid "day_5"
+msgstr "Donderdag"
+
+#. Default: "Friday"
+#: ./browser/calendar_config.pt:38
+msgid "day_6"
+msgstr "Vrijdag"
+
+#. Default: "Saturday"
+#: ./browser/calendar_config.pt:39
+msgid "day_7"
+msgstr "Zaterdag"
+
+#. Default: "Sun"
+#: ./browser/calendar_config.pt:40
+msgid "day_short_1"
+msgstr "Zo"
+
+#. Default: "Mon"
+#: ./browser/calendar_config.pt:41
+msgid "day_short_2"
+msgstr "Ma"
+
+#. Default: "Tues"
+#: ./browser/calendar_config.pt:42
+msgid "day_short_3"
+msgstr "Di"
+
+#. Default: "Wed"
+#: ./browser/calendar_config.pt:43
+msgid "day_short_4"
+msgstr "Woe"
+
+#. Default: "Thurs"
+#: ./browser/calendar_config.pt:44
+msgid "day_short_5"
+msgstr "Do"
+
+#. Default: "Fri"
+#: ./browser/calendar_config.pt:45
+msgid "day_short_6"
+msgstr "Vr"
+
+#. Default: "Sat"
+#: ./browser/calendar_config.pt:46
+msgid "day_short_7"
+msgstr "Za"
+
+#. Default: "January"
+#: ./browser/calendar_config.pt:9
+msgid "month_1"
+msgstr "Januari"
+
+#. Default: "October"
+#: ./browser/calendar_config.pt:18
+msgid "month_10"
+msgstr "Oktober"
+
+#. Default: "November"
+#: ./browser/calendar_config.pt:19
+msgid "month_11"
+msgstr "November"
+
+#. Default: "December"
+#: ./browser/calendar_config.pt:20
+msgid "month_12"
+msgstr "December"
+
+#. Default: "February"
+#: ./browser/calendar_config.pt:10
+msgid "month_2"
+msgstr "Februari"
+
+#. Default: "March"
+#: ./browser/calendar_config.pt:11
+msgid "month_3"
+msgstr "Maart"
+
+#. Default: "April"
+#: ./browser/calendar_config.pt:12
+msgid "month_4"
+msgstr "April"
+
+#. Default: "May"
+#: ./browser/calendar_config.pt:13
+msgid "month_5"
+msgstr "Mei"
+
+#. Default: "June"
+#: ./browser/calendar_config.pt:14
+msgid "month_6"
+msgstr "Juni"
+
+#. Default: "July"
+#: ./browser/calendar_config.pt:15
+msgid "month_7"
+msgstr "Juli"
+
+#. Default: "August"
+#: ./browser/calendar_config.pt:16
+msgid "month_8"
+msgstr "Augustus"
+
+#. Default: "September"
+#: ./browser/calendar_config.pt:17
+msgid "month_9"
+msgstr "September"
+
+#. Default: "Jan"
+#: ./browser/calendar_config.pt:21
+msgid "month_short_1"
+msgstr "Jan"
+
+#. Default: "Oct"
+#: ./browser/calendar_config.pt:30
+msgid "month_short_10"
+msgstr "Okt"
+
+#. Default: "Nov"
+#: ./browser/calendar_config.pt:31
+msgid "month_short_11"
+msgstr "Nov"
+
+#. Default: "Dec"
+#: ./browser/calendar_config.pt:32
+msgid "month_short_12"
+msgstr "Dec"
+
+#. Default: "Feb"
+#: ./browser/calendar_config.pt:22
+msgid "month_short_2"
+msgstr "Feb"
+
+#. Default: "Mar"
+#: ./browser/calendar_config.pt:23
+msgid "month_short_3"
+msgstr "Mrt"
+
+#. Default: "Apr"
+#: ./browser/calendar_config.pt:24
+msgid "month_short_4"
+msgstr "Apr"
+
+#. Default: "May"
+#: ./browser/calendar_config.pt:25
+msgid "month_short_5"
+msgstr "Mei"
+
+#. Default: "June"
+#: ./browser/calendar_config.pt:26
+msgid "month_short_6"
+msgstr "Jun"
+
+#. Default: "July"
+#: ./browser/calendar_config.pt:27
+msgid "month_short_7"
+msgstr "Jul"
+
+#. Default: "Aug"
+#: ./browser/calendar_config.pt:28
+msgid "month_short_8"
+msgstr "Aug"
+
+#. Default: "Sept"
+#: ./browser/calendar_config.pt:29
+msgid "month_short_9"
+msgstr "Sep"
+
+#. Default: "h:mm tt"
+#: ./browser/calendar_config.pt:71
+msgid "time_format"
+msgstr "h:mm tt"
+
+#. Default: "dddd, MMM d, yyyy"
+#: ./browser/calendar_config.pt:60
+msgid "title_day"
+msgstr "dddd, MMM d, yyyy"
+
+#. Default: "MMMM yyyy"
+#: ./browser/calendar_config.pt:58
+msgid "title_month"
+msgstr "MMMM yyyy"
+
+#. Default: "MMM d[ yyyy]{ - [ MMM] d yyyy}"
+#: ./browser/calendar_config.pt:59
+msgid "title_week"
+msgstr "MMM d[ yyyy]{ - [ MMM] d yyyy}"
+
