@@ -5,6 +5,10 @@ Changelog
 1.13
 ----
 
+* Fix GS structure (Types -> types and topic.xml -> Topic.xml and added 
+  types.xml)
+  [07.03.2011, mathias.leimgruber]
+
 * Fixed README.txt [thomasdesvenain]
 
 1.12
