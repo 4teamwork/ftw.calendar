@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<object name="Topic">
+ <property name="view_methods" purge="False">
+  <element value="ftwcalendar_view"/>
+ </property>
+</object>
+
