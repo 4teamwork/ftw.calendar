@@ -4,7 +4,8 @@ Changelog
 
 1.14
 ----
-
+* Added french translation. Thanks to François Hurter.
+  [22.03.2011, fsprenger]
 
 1.13
 ----

@@ -1,0 +1,261 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"POT-Creation-Date: 2011-01-25 16:29+0000\n"
+"PO-Revision-Date: 2011-03-21 15:20+0100\n"
+"Last-Translator: Francois Hurter <francois.hurter@hep-bejune.ch>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: fr\n"
+"Language-Name: French\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#. Default: "Calendar view"
+#: browser/configure.zcml:14
+msgid "Calendar view"
+msgstr "Calendrier"
+
+#. Default: "All day"
+#: browser/calendar_config.pt:68
+msgid "all_day"
+msgstr "Tous les jours"
+
+#. Default: "h:mm tt"
+#: browser/calendar_config.pt:66
+msgid "axis_format"
+msgstr "H(:mm)"
+
+#. Default: "day"
+#: browser/calendar_config.pt:55
+msgid "button_day"
+msgstr "Jour"
+
+#. Default: "month"
+#: browser/calendar_config.pt:53
+msgid "button_month"
+msgstr "Mois"
+
+#. Default: "today"
+#: browser/calendar_config.pt:52
+msgid "button_today"
+msgstr "Aujourd\\'hui"
+
+#. Default: "week"
+#: browser/calendar_config.pt:54
+msgid "button_week"
+msgstr "Semaine"
+
+#. Default: "Sunday"
+#: browser/calendar_config.pt:33
+msgid "day_1"
+msgstr "Dimanche"
+
+#. Default: "Monday"
+#: browser/calendar_config.pt:34
+msgid "day_2"
+msgstr "Lundi"
+
+#. Default: "Tuesday"
+#: browser/calendar_config.pt:35
+msgid "day_3"
+msgstr "Mardi"
+
+#. Default: "Wednesday"
+#: browser/calendar_config.pt:36
+msgid "day_4"
+msgstr "Mercredi"
+
+#. Default: "Thursday"
+#: browser/calendar_config.pt:37
+msgid "day_5"
+msgstr "Jeudi"
+
+#. Default: "Friday"
+#: browser/calendar_config.pt:38
+msgid "day_6"
+msgstr "Vendredi"
+
+#. Default: "Saturday"
+#: browser/calendar_config.pt:39
+msgid "day_7"
+msgstr "Samedi"
+
+#. Default: "Sun"
+#: browser/calendar_config.pt:40
+msgid "day_short_1"
+msgstr "Di"
+
+#. Default: "Mon"
+#: browser/calendar_config.pt:41
+msgid "day_short_2"
+msgstr "Lu"
+
+#. Default: "Tues"
+#: browser/calendar_config.pt:42
+msgid "day_short_3"
+msgstr "Ma"
+
+#. Default: "Wed"
+#: browser/calendar_config.pt:43
+msgid "day_short_4"
+msgstr "Me"
+
+#. Default: "Thurs"
+#: browser/calendar_config.pt:44
+msgid "day_short_5"
+msgstr "Je"
+
+#. Default: "Fri"
+#: browser/calendar_config.pt:45
+msgid "day_short_6"
+msgstr "Ve"
+
+#. Default: "Sat"
+#: browser/calendar_config.pt:46
+msgid "day_short_7"
+msgstr "Sa"
+
+#. Default: "January"
+#: browser/calendar_config.pt:9
+msgid "month_1"
+msgstr "Janvier"
+
+#. Default: "October"
+#: browser/calendar_config.pt:18
+msgid "month_10"
+msgstr "Octobre"
+
+#. Default: "November"
+#: browser/calendar_config.pt:19
+msgid "month_11"
+msgstr "Novembre"
+
+#. Default: "December"
+#: browser/calendar_config.pt:20
+msgid "month_12"
+msgstr "Décembre"
+
+#. Default: "February"
+#: browser/calendar_config.pt:10
+msgid "month_2"
+msgstr "Février"
+
+#. Default: "March"
+#: browser/calendar_config.pt:11
+msgid "month_3"
+msgstr "Mars"
+
+#. Default: "April"
+#: browser/calendar_config.pt:12
+msgid "month_4"
+msgstr "Avril"
+
+#. Default: "May"
+#: browser/calendar_config.pt:13
+msgid "month_5"
+msgstr "Mai"
+
+#. Default: "June"
+#: browser/calendar_config.pt:14
+msgid "month_6"
+msgstr "Juin"
+
+#. Default: "July"
+#: browser/calendar_config.pt:15
+msgid "month_7"
+msgstr "Juillet"
+
+#. Default: "August"
+#: browser/calendar_config.pt:16
+msgid "month_8"
+msgstr "Août"
+
+#. Default: "September"
+#: browser/calendar_config.pt:17
+msgid "month_9"
+msgstr "Septembre"
+
+#. Default: "Jan"
+#: browser/calendar_config.pt:21
+msgid "month_short_1"
+msgstr "Jan"
+
+#. Default: "Oct"
+#: browser/calendar_config.pt:30
+msgid "month_short_10"
+msgstr "Oct"
+
+#. Default: "Nov"
+#: browser/calendar_config.pt:31
+msgid "month_short_11"
+msgstr "Nov"
+
+#. Default: "Dec"
+#: browser/calendar_config.pt:32
+msgid "month_short_12"
+msgstr "Déc"
+
+#. Default: "Feb"
+#: browser/calendar_config.pt:22
+msgid "month_short_2"
+msgstr "Fév"
+
+#. Default: "Mar"
+#: browser/calendar_config.pt:23
+msgid "month_short_3"
+msgstr "Mar"
+
+#. Default: "Apr"
+#: browser/calendar_config.pt:24
+msgid "month_short_4"
+msgstr "Avr"
+
+#. Default: "May"
+#: browser/calendar_config.pt:25
+msgid "month_short_5"
+msgstr "Mai"
+
+#. Default: "June"
+#: browser/calendar_config.pt:26
+msgid "month_short_6"
+msgstr "Jui"
+
+#. Default: "July"
+#: browser/calendar_config.pt:27
+msgid "month_short_7"
+msgstr "Jui"
+
+#. Default: "Aug"
+#: browser/calendar_config.pt:28
+msgid "month_short_8"
+msgstr "Aoû"
+
+#. Default: "Sept"
+#: browser/calendar_config.pt:29
+msgid "month_short_9"
+msgstr "Sep"
+
+#. Default: "h:mm tt"
+#: browser/calendar_config.pt:71
+msgid "time_format"
+msgstr "H:mm"
+
+#. Default: "dddd, MMM d, yyyy"
+#: browser/calendar_config.pt:60
+msgid "title_day"
+msgstr "dddd, d. MMMM yyyy"
+
+#. Default: "MMMM yyyy"
+#: browser/calendar_config.pt:58
+msgid "title_month"
+msgstr "MMMM yyyy"
+
+#. Default: "MMM d[ yyyy]{ - [ MMM] d yyyy}"
+#: browser/calendar_config.pt:59
+msgid "title_week"
+msgstr "d[ yyyy]. MMMM{ - d.[ MMMM] yyyy}"
+
