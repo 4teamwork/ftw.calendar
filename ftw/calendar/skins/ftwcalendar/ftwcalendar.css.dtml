@@ -13,7 +13,8 @@ div.fc {
 .fc-view {
     z-index: 0;
 }
-div.fc-event a {
+#content div.fc-event a,
+#content div.fc-event a:hover {
     color: inherit;
 }
 div.fc-event.editable a {

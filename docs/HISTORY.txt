@@ -4,8 +4,12 @@ Changelog
 
 1.14
 ----
+
 * Added french translation. Thanks to François Hurter.
   [22.03.2011, fsprenger]
+
+* Make sure link color is not overridden by sunburst style
+  [20.06.2011, fsprenger]
 
 1.13
 ----
@@ -18,6 +22,7 @@ Changelog
 
 1.12
 ----
+
 * Change default time_format for german language (show H:mm).
   [14.02.2011, mathias.leimgruber]
 
