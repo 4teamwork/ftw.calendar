@@ -10,6 +10,7 @@
   <!-- Plone 3 -->
   <browser:page
 	  zcml:condition="installed Products.ATContentTypes.interface.topic"
+      class=".calendarview.CalendarView"
       for="Products.ATContentTypes.interface.topic.IATTopic"
       name="ftwcalendar_view"
       menu="plone_displayviews"
@@ -22,6 +23,7 @@
   <!-- Plone 4 -->
   <browser:page
 	  zcml:condition="not-installed Products.ATContentTypes.interface.topic"
+      class=".calendarview.CalendarView"
       for="Products.ATContentTypes.interfaces.topic.IATTopic"
       name="ftwcalendar_view"
       menu="plone_displayviews"
