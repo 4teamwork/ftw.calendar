@@ -2,5 +2,4 @@ recursive-include ftw *
 recursive-include docs *
 include *.txt
 global-exclude *.pyc
-global-exclude *.mo
 global-exclude ._*
