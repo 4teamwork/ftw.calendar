@@ -1,4 +1,5 @@
-<tal:script i18n:domain="ftw.calendar">
+<tal:script i18n:domain="ftw.calendar" 
+    tal:define="set_mimetype python:request.response.setHeader('Content-Type', 'text/javascript');">
 jq(document).ready(function() {
 	jq('#calendar').fullCalendar({
 		header: {

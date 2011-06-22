@@ -5,6 +5,9 @@ Changelog
 1.15
 ----
 
+* Set mimetype header for configuration javascript so that it works with
+  Diazo theming.
+  [22.06.2011, yomatters]
 
 1.14
 ----
