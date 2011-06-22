@@ -8,7 +8,7 @@ Changelog
 * Added class for ftwcalendar_view, so a viewlet can be registered on this class.
   [22.06.2011, jinfanger]
 
-* Added french translation. Thanks to François Hurter.
+* Added french translation. Thanks to Francois Hurter.
   [22.03.2011, fsprenger]
 
 * Make sure link color is not overridden by sunburst style
