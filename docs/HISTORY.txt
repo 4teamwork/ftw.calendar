@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.15 (Unreleased)
+1.15 (2012-01-27)
 -----------------
 
 * Make calendar work with other context than collection.
