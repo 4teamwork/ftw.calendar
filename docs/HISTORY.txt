@@ -2,8 +2,11 @@ Changelog
 =========
 
 
-1.15
-----
+1.15 (Unreleased)
+-----------------
+
+* Make calendar work with other context than collection.
+  [Julian Infanger]
 
 * Set mimetype header for configuration javascript so that it works with
   Diazo theming.

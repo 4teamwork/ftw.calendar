@@ -1,3 +1,4 @@
+from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from DateTime import DateTime
 
@@ -9,6 +10,7 @@ class CalendarupdateView(BrowserView):
     """
     Calendarupdate browser view
     """
+
 
     def __call__(self, *args, **kw):
         """Render JS Initialization code"""
@@ -23,7 +25,16 @@ class CalendarupdateView(BrowserView):
                 'query': DateTime(self.request.get('end')), 'range': 'max'},
             'end': {
                 'query': DateTime(self.request.get('start')), 'range': 'min'}}
-        brains = context.aq_inner.queryCatalog(REQUEST=self.request, **args)
+        if context.portal_type == 'Topic':
+            brains = context.aq_inner.queryCatalog(REQUEST=self.request, **args)
+        else:
+            portal_calendar = getToolByName(context, 'portal_calendar')
+            catalog = getToolByName(context, 'portal_catalog')
+            brains = catalog(
+                portal_type = portal_calendar.getCalendarTypes(),
+                path = {'depth': -1,
+                        'query': '/'.join(context.getPhysicalPath())}
+            )
         result = []
         memberid = self.context.portal_membership.getAuthenticatedMember().id
 

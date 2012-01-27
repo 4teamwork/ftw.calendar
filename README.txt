@@ -8,6 +8,8 @@ Features
 
 * Generic: ftw.calendar doesn't care about the event objects, it only needs
   a collection in which the resulting brains have a start and a end attribute.
+  If the calendar view is on an other content type than a collection, it will
+  show all events (types defined in portal_calendar) below this context.
 
 * Lightweight: the only requirement (apart from plone of course) is simplejson.
   Optionally, if you want to enable resizing of events and the drag and drop functionality,
