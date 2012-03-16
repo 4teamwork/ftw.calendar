@@ -1,12 +1,12 @@
 Changelog
 =========
 
-
 1.16 (unreleased)
 -----------------
 
-- Nothing changed yet.
-
+* Pass dates to the javascript in ISO8601 format so it handles timezones
+  correctly.
+  [davisagli]
 
 1.15 (2012-01-27)
 -----------------

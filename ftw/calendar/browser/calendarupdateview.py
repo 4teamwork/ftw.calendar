@@ -49,8 +49,8 @@ class CalendarupdateView(BrowserView):
                 allday = False
             result.append({"id": "UID_%s" % (brain.UID),
                            "title": brain.Title,
-                           "start": brain.start.rfc822(),
-                           "end": brain.end.rfc822(),
+                           "start": brain.start.ISO8601(),
+                           "end": brain.end.ISO8601(),
                            "url": brain.getURL(),
                            "editable": editable,
                            "allDay": allday,
