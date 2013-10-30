@@ -4,151 +4,183 @@ Changelog
 1.16 (unreleased)
 -----------------
 
-* Pass dates to the javascript in ISO8601 format so it handles timezones
+- Package cleanup (Readme.rst/History.txt/setup.py/.gitignore/license).
+  [mathias.leimgruber]
+
+- Pass dates to the javascript in ISO8601 format so it handles timezones
   correctly.
   [davisagli]
+
 
 1.15 (2012-01-27)
 -----------------
 
-* Make calendar work with other context than collection.
+- Make calendar work with other context than collection.
   [Julian Infanger]
 
-* Set mimetype header for configuration javascript so that it works with
+- Set mimetype header for configuration javascript so that it works with
   Diazo theming.
   [22.06.2011, yomatters]
+
 
 1.14
 ----
 
-* Added class for ftwcalendar_view, so a viewlet can be registered on this class.
+- Added class for ftwcalendar_view, so a viewlet can be registered on this class.
   [22.06.2011, jinfanger]
 
-* Added french translation. Thanks to Francois Hurter.
+- Added french translation. Thanks to Francois Hurter.
   [22.03.2011, fsprenger]
 
-* Make sure link color is not overridden by sunburst style
+- Make sure link color is not overridden by sunburst style
   [20.06.2011, fsprenger]
+
 
 1.13
 ----
 
-* Fix GS structure (Types -> types and topic.xml -> Topic.xml and added 
+- Fix GS structure (Types -> types and topic.xml -> Topic.xml and added
   types.xml)
   [07.03.2011, mathias.leimgruber]
 
-* Fixed README.txt [thomasdesvenain]
+- Fixed README.txt [thomasdesvenain]
+
 
 1.12
 ----
 
-* Change default time_format for german language (show H:mm).
+- Change default time_format for german language (show H:mm).
   [14.02.2011, mathias.leimgruber]
 
-* Call queryCatalog on context.aq_inner for proper ATRelativePathCriterion
+- Call queryCatalog on context.aq_inner for proper ATRelativePathCriterion
   support.
   [14.02.2011, mathias.leimgruber]
 
-* PEP8 on calendarupdateview.
+- PEP8 on calendarupdateview.
   [14.02.2011, mathias.leimgruber]
+
 
 1.11
 ----
 
-* Updated fullcalendar to version 1.4.10. Changelog for fullcalendar can be
+- Updated fullcalendar to version 1.4.10. Changelog for fullcalendar can be
   found here: http://arshaw.com/js/fullcalendar/changelog.txt
   [fsprenger]
 
-* Fixed a js bug in the configuration
+- Fixed a js bug in the configuration
   [fsprenger]
 
-* Fixing Plone 3 compatibility with a zcml.condition
+- Fixing Plone 3 compatibility with a zcml.condition
   [fsprenger]
 
-* Made first day of the week option use the setting in Plone's calendar
+- Made first day of the week option use the setting in Plone's calendar
   control panel.
   [yomatters]
 
-* Updated product description in install profile.
+- Updated product description in install profile.
   [yomatters]
 
-* Changed settings to use Plone's normal i18n machinery.
+- Changed settings to use Plone's normal i18n machinery.
   [yomatters]
 
-* Improved default styling in Sunburst on Plone 4.
+- Improved default styling in Sunburst on Plone 4.
   [yomatters]
 
-* Send drop and resize arguments as JSON for jQuery 1.4 compatibility.
+- Send drop and resize arguments as JSON for jQuery 1.4 compatibility.
   [yomatters]
+
 
 1.10
 ----
 
-* solved problem with hidden osx files in previous release
+- solved problem with hidden osx files in previous release
   [fsprenger]
 
-* do not compress fullcallendar.min.js in JSRegistry.
+- do not compress fullcallendar.min.js in JSRegistry.
   [naro]
+
 
 1.9
 ---
-* updated fullcalendar to version 1.4.8
+
+- updated fullcalendar to version 1.4.8
   [fsprenger]
+
 
 1.8
 ---
 
-* added Czech translation
+- added Czech translation
   [naro]
 
-* added menuItem declaration to provide nice and translatable Display menu
+- added menuItem declaration to provide nice and translatable Display menu
   item
   [naro]
 
-* fixed zcml declarations (added layer)
+- fixed zcml declarations (added layer)
   [naro]
 
-* added .po files
+- added .po files
   [naro]
+
 
 1.7
 ---
-* updated docs for public release
+
+- updated docs for public release
   [fsprenger]
+
 
 1.6
 ---
-* updated fullcalendar to version 1.4.6
+
+- updated fullcalendar to version 1.4.6
+
 
 1.5
 ---
-* configured english as a fallback-language if there is no translation for the
+
+- configured english as a fallback-language if there is no translation for the
   current language
-* added a custom css file to override styles defined in fullcalendar.css
-* highlight the current users own events
-* use the styles defined in members.css to mark the state of an event
-* added support for all day events
+
+- added a custom css file to override styles defined in fullcalendar.css
+
+- highlight the current users own events
+
+- use the styles defined in members.css to mark the state of an event
+
+- added support for all day events
+
 
 1.4
 ---
-* enabled drag and drop in day and week view
-* enabled resize in day and week view
+
+- enabled drag and drop in day and week view
+
+- enabled resize in day and week view
+
 
 1.3
 ---
-* removed jquery plugin integration (was intended for plone 2.5)
-* fixed a bug in the query, now events that span across several months are displayed correctly
+
+- removed jquery plugin integration (was intended for plone 2.5)
+
+- fixed a bug in the query, now events that span across several months are displayed correctly
+
 
 1.2
 ---
-* fixed time format and set start day to monday
+
+- fixed time format and set start day to monday
+
 
 1.1
 ---
 
-* Removed a reference to a nonexisting file
+- Removed a reference to a nonexisting file
+
 
 1.0
 ---
 
-* Initial release
+- Initial release
