@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = open('ftw/calendar/version.txt').read().strip()
+version = '1.16.dev0'
 
 
 setup(name='ftw.calendar',
