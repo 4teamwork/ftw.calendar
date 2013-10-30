@@ -4,6 +4,9 @@ Changelog
 1.16 (unreleased)
 -----------------
 
+- Package cleanup (Readme.rst/History.txt/setup.py/.gitignore/license).
+  [mathias.leimgruber]
+
 - Pass dates to the javascript in ISO8601 format so it handles timezones
   correctly.
   [davisagli]
