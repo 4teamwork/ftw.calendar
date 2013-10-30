@@ -4,6 +4,9 @@ Changelog
 1.16 (unreleased)
 -----------------
 
+- Plone 4.3 compatibility.
+  [mathias.leimgruber]
+
 - Package cleanup (Readme.rst/History.txt/setup.py/.gitignore/license).
   [mathias.leimgruber]
 
