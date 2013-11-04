@@ -1,7 +1,7 @@
 <tal:script i18n:domain="ftw.calendar" 
     tal:define="set_mimetype python:request.response.setHeader('Content-Type', 'text/javascript');">
-jq(document).ready(function() {
-	jq('#calendar').fullCalendar({
+$(document).ready(function() {
+	$('#calendar').fullCalendar({
 		header: {
 			left: 'prev,next today',
 			center: 'title',
@@ -74,7 +74,7 @@ jq(document).ready(function() {
             element.find("a").attr('title', event.description);
         },
         eventDrop: function(event, dayDelta, minuteDelta) {
-            jq.ajax({
+            $.ajax({
                 type: 'POST',
                 url: './ftwcalendar_drop',
                 data: {
@@ -87,7 +87,7 @@ jq(document).ready(function() {
             });
         },
         eventResize: function(event, dayDelta, minuteDelta, revertFunc) {
-            jq.ajax({
+            $.ajax({
                 type: 'POST',
                 url: './ftwcalendar_resize',
                 data: {
@@ -102,9 +102,9 @@ jq(document).ready(function() {
         },
         loading: function(bool) {
             if (bool) {
-                jq('#kss-spinner').show();
+                $('#kss-spinner').show();
             } else {
-                jq('#kss-spinner').hide();
+                $('#kss-spinner').hide();
             }
         }
 
