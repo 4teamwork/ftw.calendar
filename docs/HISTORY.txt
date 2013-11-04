@@ -4,6 +4,9 @@ Changelog
 1.16 (unreleased)
 -----------------
 
+- Add test setup and a basic test.
+  [mathias.leimgruber]
+
 - Plone 4.3 compatibility.
   [mathias.leimgruber]
 
