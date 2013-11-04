@@ -3,6 +3,12 @@ import os
 
 version = '1.16.dev0'
 
+tests_require = ['ftw.testing [splinter]',
+                 'ftw.builder',
+                 'plone.app.testing',
+                 'ftw.testbrowser',
+                 ]
+
 
 setup(name='ftw.calendar',
       version=version,
@@ -26,6 +32,8 @@ setup(name='ftw.calendar',
       namespace_packages=['ftw'],
       include_package_data=True,
       zip_safe=False,
+      tests_require=tests_require,
+      extras_require=dict(tests=tests_require),
       install_requires=[
           'setuptools',
           'simplejson',
