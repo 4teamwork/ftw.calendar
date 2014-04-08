@@ -7,26 +7,11 @@
 
   <include package="plone.app.contentmenu" />
 
-  <!-- Plone 3 -->
-  <browser:page
-	  zcml:condition="installed Products.ATContentTypes.interface.topic"
-      class=".calendarview.CalendarView"
-      for="*"
-      name="ftwcalendar_view"
-      menu="plone_displayviews"
-      title="Calendar view"
-      template="calendarview.pt"
-      layer=".interfaces.IFtwCalendarLayer"
-      permission="zope.Public"
-      />
-
   <!-- Plone 4 -->
   <browser:page
-	  zcml:condition="not-installed Products.ATContentTypes.interface.topic"
       class=".calendarview.CalendarView"
       for="*"
       name="ftwcalendar_view"
-      menu="plone_displayviews"
       title="Calendar view"
       template="calendarview.pt"
       layer=".interfaces.IFtwCalendarLayer"

@@ -37,7 +37,6 @@ setup(name='ftw.calendar',
       install_requires=[
           'Plone',
           'setuptools',
-          'simplejson',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
