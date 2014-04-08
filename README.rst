@@ -3,6 +3,20 @@ Introduction
 
 ``ftw.calendar`` is a calendar view based on fullcalendar (http://arshaw.com/fullcalendar).
 
+
+Special requirements
+====================
+Currently it depends on plone.app.event 1.1b1.
+Since all newer versions need plone.app.widgets.
+But 1.1b1 has a install bug. You first need to run the plone.app.registry
+import step manually, then the full setup. This package fixes this bug
+with custom setuphandler, which installs plone.app.event the right way.
+
+Since plone.app.event does not supports only plone >= 4.3.
+We drop the support for all older plone versions.
+
+Other plone.app.event versions may work or not.
+
 Features
 ========
 
@@ -56,7 +70,7 @@ Many thanks to Adam Shaw for jq.fullcalendar.
 Compatibility
 -------------
 
-Runs with `Plone <http://www.plone.org/>`_ `4.1`, `4.2`.
+Runs with `Plone <http://www.plone.org/>`_ `4.3`,.
 
 
 Links
