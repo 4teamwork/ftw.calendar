@@ -12,7 +12,6 @@
       class=".calendarview.CalendarView"
       for="*"
       name="ftwcalendar_view"
-      title="Calendar view"
       template="calendarview.pt"
       layer=".interfaces.IFtwCalendarLayer"
       permission="zope.Public"

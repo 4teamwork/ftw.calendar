@@ -5,10 +5,17 @@
 
   <genericsetup:registerProfile
       name="default"
-      title="4teamwork Calendar"
+      title="Fullcalender support"
       directory="profiles/default"
       description='Calendar view based on FullCalendar.'
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
+
+  <genericsetup:importStep
+      name="ftw.calendar.custom.importstep"
+      handler="ftw.calendar.setuphandlers.setup_misc"
+      title="ftw.calendar custom import step"
+      description="Install plone.app.event the right way">
+  </genericsetup:importStep>
 
 </configure>

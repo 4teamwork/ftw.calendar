@@ -5,6 +5,7 @@ from plone.app.testing import login
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from plone.app.testing import TEST_USER_NAME
+from Products.CMFCore.utils import getToolByName
 from unittest2 import TestCase
 from zope.interface import directlyProvides
 
@@ -17,6 +18,14 @@ class TestCalendarView(TestCase):
         self.portal = self.layer['portal']
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
         login(self.portal, TEST_USER_NAME)
+
+    def test_if_p_a_event_is_installed(self):
+        portal_setup = getToolByName(self.portal, 'portal_setup')
+
+        version = portal_setup.getLastVersionForProfile(
+            'plone.app.event:default')
+        self.assertNotEqual(version, None)
+        self.assertNotEqual(version, 'unknown')
 
     def test_calendarview_available(self):
         directlyProvides(self.portal.REQUEST, IFtwCalendarLayer)
