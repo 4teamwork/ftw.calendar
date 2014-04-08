@@ -25,10 +25,6 @@ Features
   If the calendar view is on an other content type than a collection, it will
   show all events (types defined in portal_calendar) below this context.
 
-- Lightweight: the only requirement (apart from plone of course) is simplejson.
-  Optionally, if you want to enable resizing of events and the drag and drop functionality,
-  you can install jquery.ui but it is not required.
-
 - Internationalized: currently ftw.calendar is available
   in german, english and czech. Feel free to add more translations.
 

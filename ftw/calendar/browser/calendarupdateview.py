@@ -3,7 +3,7 @@ from Products.Five import BrowserView
 from DateTime import DateTime
 
 #from ftw.calendar import calendarMessageFactory as _
-import simplejson as json
+import json
 
 
 class CalendarupdateView(BrowserView):
