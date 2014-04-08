@@ -36,7 +36,6 @@ setup(name='ftw.calendar',
       extras_require=dict(tests=tests_require),
       install_requires=[
           'setuptools',
-          'simplejson',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
