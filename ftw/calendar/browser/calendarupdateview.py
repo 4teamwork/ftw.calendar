@@ -4,7 +4,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from zope.component import getMultiAdapter
 from zope.interface import implements
-import simplejson as json
+import json
 
 
 class CalendarJSONSource(object):
