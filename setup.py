@@ -14,15 +14,14 @@ setup(name='ftw.calendar',
       version=version,
       description="Calendar view based on fullcalendar",
       long_description=open("README.rst").read() + "\n" +
-                       open(os.path.join("docs", "HISTORY.txt")).read(),
+      open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from
       # http://pypi.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
-        "Framework :: Plone",
-        'Framework :: Plone :: 4.1',
-        'Framework :: Plone :: 4.2',
-        "Programming Language :: Python",
-        ],
+          "Framework :: Plone",
+          'Framework :: Plone :: 4.3',
+          "Programming Language :: Python",
+      ],
       keywords='',
       author='4teamwork AG',
       author_email='mailto:info@4teamwork.ch',
@@ -37,6 +36,8 @@ setup(name='ftw.calendar',
       install_requires=[
           'Plone',
           'setuptools',
+          'plone.app.event',
+          'ftw.upgrade',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
