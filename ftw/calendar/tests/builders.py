@@ -7,3 +7,10 @@ class EventBuilder(ArchetypesBuilder):
     portal_type = 'Event'
 
 builder_registry.register('event', EventBuilder)
+
+
+class AtEventBuilder(ArchetypesBuilder):
+    portal_type = 'Event'
+
+
+builder_registry.register('at event', AtEventBuilder)
