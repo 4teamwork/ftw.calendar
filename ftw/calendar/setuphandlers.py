@@ -11,9 +11,20 @@ def install_p_a_event(portal):
                                    purge_old=False)
 
 
-def setup_misc(context):
-    if context.readDataFile('ftw.calendar_various.txt') is None:
+def set_calendar_types(portal):
+    portal_calendar = getToolByName(portal, 'portal_calendar')
+    types = list(portal_calendar.calendar_types)
+    types.append('plone.app.event.dx.event')
+    portal_calendar.calendar_types = tuple(types)
+
+
+def setup_paevent(context):
+
+    if context.readDataFile('ftw.calendar.paevent_support.txt') is None:
         return
 
     portal = context.getSite()
+    # XXX: It's not possible to install plone.app.event 1.1b1 thru
+    # portal_setup without this
     install_p_a_event(portal)
+    set_calendar_types(portal)

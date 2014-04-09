@@ -7,8 +7,9 @@ tests_require = ['ftw.testing [splinter]',
                  'ftw.builder',
                  'plone.app.testing',
                  'ftw.testbrowser',
+                 'plone.app.event',
+                 'plone.app.dexterity',
                  ]
-
 
 setup(name='ftw.calendar',
       version=version,
@@ -35,9 +36,7 @@ setup(name='ftw.calendar',
       extras_require=dict(tests=tests_require),
       install_requires=[
           'setuptools',
-          'plone.app.regisry',
-          'plone.app.dexterity',
-          'plone.app.event',
+          'plone.app.registry',
           'ftw.upgrade',
           # -*- Extra requirements: -*-
       ],

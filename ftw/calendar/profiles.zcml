@@ -1,21 +1,31 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="ftw.calendar">
 
   <genericsetup:registerProfile
       name="default"
-      title="Fullcalender support"
+      title="ftw.calendar"
       directory="profiles/default"
-      description='Calendar view based on FullCalendar.'
+      description='FullCalendar support.'
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:registerProfile
+      zcml:condition="installed plone.app.event"
+      name="paevent"
+      title="ftw.calendar plone.app.event support"
+      directory="profiles/paevent"
+      description='Fullcalender support for plone.app.event dx type'
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
   <genericsetup:importStep
-      name="ftw.calendar.custom.importstep"
-      handler="ftw.calendar.setuphandlers.setup_misc"
-      title="ftw.calendar custom import step"
-      description="Install plone.app.event the right way">
+      name="ftw.calendar.paevent.custom.importstep"
+      handler="ftw.calendar.setuphandlers.setup_paevent"
+      title="ftw.calendar custom import step for p.a.event support"
+      description="Setup p.a.event">
   </genericsetup:importStep>
 
 </configure>
