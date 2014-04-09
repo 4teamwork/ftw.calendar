@@ -36,6 +36,8 @@ setup(name='ftw.calendar',
       install_requires=[
           'Plone',
           'setuptools',
+          'plone.app.regisry',
+          'plone.app.dexterity',
           'plone.app.event',
           'ftw.upgrade',
           # -*- Extra requirements: -*-
