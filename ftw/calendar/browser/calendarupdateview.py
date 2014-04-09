@@ -1,8 +1,6 @@
+from DateTime import DateTime
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
-from DateTime import DateTime
-
-#from ftw.calendar import calendarMessageFactory as _
 import json
 
 
@@ -10,7 +8,6 @@ class CalendarupdateView(BrowserView):
     """
     Calendarupdate browser view
     """
-
 
     def __call__(self, *args, **kw):
         """Render JS Initialization code"""
@@ -26,14 +23,15 @@ class CalendarupdateView(BrowserView):
             'end': {
                 'query': DateTime(self.request.get('start')), 'range': 'min'}}
         if context.portal_type == 'Topic':
-            brains = context.aq_inner.queryCatalog(REQUEST=self.request, **args)
+            brains = context.aq_inner.queryCatalog(
+                REQUEST=self.request, **args)
         else:
             portal_calendar = getToolByName(context, 'portal_calendar')
             catalog = getToolByName(context, 'portal_catalog')
             brains = catalog(
-                portal_type = portal_calendar.getCalendarTypes(),
-                path = {'depth': -1,
-                        'query': '/'.join(context.getPhysicalPath())}
+                portal_type=portal_calendar.getCalendarTypes(),
+                path={'depth': -1,
+                      'query': '/'.join(context.getPhysicalPath())}
             )
         result = []
         memberid = self.context.portal_membership.getAuthenticatedMember().id
@@ -54,9 +52,9 @@ class CalendarupdateView(BrowserView):
                            "url": brain.getURL(),
                            "editable": editable,
                            "allDay": allday,
-                           "className": "state-" + str(brain.review_state) + \
-                                (editable and " editable" or ""),
-                           "description": brain.Description})
+                           "className": "state-" + str(brain.review_state) +
+                         (editable and " editable" or ""),
+                "description": brain.Description})
         return json.dumps(result, sort_keys=True)
 
 
@@ -69,7 +67,7 @@ class CalendarDropView(BrowserView):
 
         if event_uid:
             event_uid = event_uid.split('UID_')[1]
-        brains = self.context.portal_catalog(UID = event_uid)
+        brains = self.context.portal_catalog(UID=event_uid)
 
         obj = brains[0].getObject()
         startDate, endDate = obj.startDate, obj.endDate
@@ -92,7 +90,7 @@ class CalendarResizeView(BrowserView):
         event_uid = request.get('event')
         if event_uid:
             event_uid = event_uid.split('UID_')[1]
-        brains = self.context.portal_catalog(UID = event_uid)
+        brains = self.context.portal_catalog(UID=event_uid)
         obj = brains[0].getObject()
         endDate = obj.endDate
         dayDelta, minuteDelta = float(request.get('dayDelta')), \
