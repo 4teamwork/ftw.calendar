@@ -4,6 +4,9 @@ Changelog
 3.0.0 (unreleased)
 ------------------
 
+- Support recurring events (plone.app.event.dx type).
+  [mathias.leimgruber]
+
 - Implement plone.app.event DX based contenttype support.
   [mathias.leimgruber]
 

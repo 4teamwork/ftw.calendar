@@ -1,5 +1,8 @@
 from DateTime import DateTime
 from ftw.calendar.browser.interfaces import IFtwCalendarJSONSourceProvider
+from plone.app.event.base import dates_for_display
+from plone.app.event.base import get_events
+from plone.app.event.base import RET_MODE_ACCESSORS
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from zope.component import getMultiAdapter
@@ -14,46 +17,48 @@ class CalendarJSONSource(object):
         self.context = context
         self.request = request
         self.cache = None
+        self.results = None
 
         self.memberid = \
             self.context.portal_membership.getAuthenticatedMember().id
 
     def generate_json_calendar_source(self):
-        result = []
+        self.results = []
         self.cache = set()
 
-        for brain in self.get_event_brains():
-            result.append(self.generate_source_dict_from_brain(brain))
+        self.set_event_brains()
 
-        return json.dumps(result, sort_keys=True)
+        return json.dumps(self.result, sort_keys=True)
 
-    def get_event_brains(self):
-        return self.get_brains_without_recurrence()
-
-    def get_brains_without_recurrence(self):
+    def set_event_brains(self):
         args = {
             'start': {
                 'query': DateTime(self.request.get('end')), 'range': 'max'},
             'end': {
                 'query': DateTime(self.request.get('start')), 'range': 'min'}}
 
+        self.set_brains_without_recurrence(args)
+        self.set_brains_with_recurrence(args)
+
+    def set_brains_without_recurrence(self, args):
         if self.context.portal_type in ['Topic', 'Collection']:
-            return self.context.aq_inner.queryCatalog(
+            brains = self.context.aq_inner.queryCatalog(
                 REQUEST=self.request, **args)
+
         else:
             portal_calendar = getToolByName(self.context, 'portal_calendar')
             catalog = getToolByName(self.context, 'portal_catalog')
-            return catalog(
+            brains = catalog(
                 portal_type=portal_calendar.getCalendarTypes(),
                 path={'depth': -1,
                       'query': '/'.join(self.context.getPhysicalPath())}
             )
 
-    def generate_source_dict_from_brain(self, brain):
-        uid = brain.UID
-        if uid not in self.cache:
-            self.cache.add(uid)
-            return self.format_brain(brain)
+        for brain in brains:
+            url = brain.getURL()
+            if url not in self.cache:
+                self.cache.append(url)
+                self.result.append(self.format_brain(brain))
 
     def format_brain(self, brain):
         editable = self.memberid in brain.Creator
@@ -69,6 +74,41 @@ class CalendarJSONSource(object):
                 "className": "state-" + str(brain.review_state) +
                 (editable and " editable" or ""),
                 "description": brain.Description}
+
+    def set_brains_with_recurrence(self, args):
+        start = args['start']
+        del args['start']
+        end = args['end']
+        del args['end']
+
+        args['path'] = {'depth': -1,
+                        'query': '/'.join(self.context.getPhysicalPath())}
+
+        occurencies = get_events(self.context,
+                                 start=start,
+                                 end=end,
+                                 expand=True,
+                                 ret_mode=RET_MODE_ACCESSORS,
+                                 **args)
+
+        for occ in occurencies:
+            url = occ.url
+            if url not in self.cache:
+                self.cache.append(url)
+                self.result.append(self.format_occurency(occ))
+
+    def format_occurency(self, occ):
+        dates = dates_for_display(occ)
+
+        return {"id": "UID_%s" % (occ.uid),
+                "title": occ.title,
+                "start": dates['start_iso'],
+                "end": dates['end_iso'],
+                "url": occ.url,
+                "editable": False,
+                "allDay": dates['whole_day'],
+                "className": "",
+                "description": occ.description}
 
 
 class CalendarupdateView(BrowserView):
