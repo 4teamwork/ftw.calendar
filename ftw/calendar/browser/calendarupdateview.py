@@ -13,12 +13,14 @@ class CalendarJSONSource(object):
     def __init__(self, context, request):
         self.context = context
         self.request = request
+        self.cache = None
 
         self.memberid = \
             self.context.portal_membership.getAuthenticatedMember().id
 
     def generate_json_calendar_source(self):
         result = []
+        self.cache = set()
 
         for brain in self.get_event_brains():
             result.append(self.generate_source_dict_from_brain(brain))
@@ -26,6 +28,9 @@ class CalendarJSONSource(object):
         return json.dumps(result, sort_keys=True)
 
     def get_event_brains(self):
+        return self.get_brains_without_recurrence()
+
+    def get_brains_without_recurrence(self):
         args = {
             'start': {
                 'query': DateTime(self.request.get('end')), 'range': 'max'},
@@ -45,14 +50,15 @@ class CalendarJSONSource(object):
             )
 
     def generate_source_dict_from_brain(self, brain):
-        if self.memberid in brain.Creator:
-            editable = True
-        else:
-            editable = False
-        if brain.end - brain.start > 1.0:
-            allday = True
-        else:
-            allday = False
+        uid = brain.UID
+        if uid not in self.cache:
+            self.cache.add(uid)
+            return self.format_brain(brain)
+
+    def format_brain(self, brain):
+        editable = self.memberid in brain.Creator
+        allday = brain.end - brain.start > 1.0
+
         return {"id": "UID_%s" % (brain.UID),
                 "title": brain.Title,
                 "start": brain.start.ISO8601(),
