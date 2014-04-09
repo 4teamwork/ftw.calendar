@@ -9,53 +9,66 @@ class CalendarupdateView(BrowserView):
     Calendarupdate browser view
     """
 
+    def __init__(self, context, request):
+        super(CalendarupdateView, self).__init__(context, request)
+        self.result = None
+        self.cache = None
+        self.memberid = None
+
     def __call__(self, *args, **kw):
         """Render JS Initialization code"""
+        mtool = getToolByName(self.context, 'portal_membership')
 
-        response = self.request.response
-        context = self.context
+        self.result = []
+        self.cache = set()
+        self.memberid = mtool.getAuthenticatedMember().id
 
-        response.setHeader('Content-Type', 'application/x-javascript')
-
-        args = {
+        query = {
             'start': {
                 'query': DateTime(self.request.get('end')), 'range': 'max'},
             'end': {
                 'query': DateTime(self.request.get('start')), 'range': 'min'}}
-        if context.portal_type == 'Topic':
-            brains = context.aq_inner.queryCatalog(
-                REQUEST=self.request, **args)
+
+        self.get_data_without_recurrence(query)
+
+        response = self.request.response
+        response.setHeader('Content-Type', 'application/x-javascript')
+        return json.dumps(self.result, sort_keys=True)
+
+    def get_data_without_recurrence(self, query):
+
+        if self.context.portal_type == 'Topic':
+            brains = self.context.aq_inner.queryCatalog(
+                REQUEST=self.request, **query)
         else:
-            portal_calendar = getToolByName(context, 'portal_calendar')
-            catalog = getToolByName(context, 'portal_catalog')
+            portal_calendar = getToolByName(self.context, 'portal_calendar')
+            catalog = getToolByName(self.context, 'portal_catalog')
             brains = catalog(
                 portal_type=portal_calendar.getCalendarTypes(),
                 path={'depth': -1,
-                      'query': '/'.join(context.getPhysicalPath())}
+                      'query': '/'.join(self.context.getPhysicalPath())}
             )
-        result = []
-        memberid = self.context.portal_membership.getAuthenticatedMember().id
 
         for brain in brains:
-            if memberid in brain.Creator:
-                editable = True
-            else:
-                editable = False
-            if brain.end - brain.start > 1.0:
-                allday = True
-            else:
-                allday = False
-            result.append({"id": "UID_%s" % (brain.UID),
-                           "title": brain.Title,
-                           "start": brain.start.ISO8601(),
-                           "end": brain.end.ISO8601(),
-                           "url": brain.getURL(),
-                           "editable": editable,
-                           "allDay": allday,
-                           "className": "state-" + str(brain.review_state) +
-                         (editable and " editable" or ""),
-                "description": brain.Description})
-        return json.dumps(result, sort_keys=True)
+            uid = brain.UID
+            if uid not in self.cache:
+                self.cache.add(uid)
+                self.result.append(self.format_brain(brain))
+
+    def format_brain(self, brain):
+        editable = self.memberid in brain.Creator
+        allday = brain.end - brain.start > 1.0
+
+        return {"id": "UID_%s" % (brain.UID),
+                "title": brain.Title,
+                "start": brain.start.ISO8601(),
+                "end": brain.end.ISO8601(),
+                "url": brain.getURL(),
+                "editable": editable,
+                "allDay": allday,
+                "className": "state-" + str(brain.review_state) +
+                (editable and " editable" or ""),
+                "description": brain.Description}
 
 
 class CalendarDropView(BrowserView):
