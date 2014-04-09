@@ -1,6 +1,12 @@
 Changelog
 =========
 
+3.0.0 (unreleased)
+------------------
+
+- Implement plone.app.event DX based contenttype support.
+  [mathias.leimgruber]
+
 2.1.2 (unreleased)
 ------------------
 

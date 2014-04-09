@@ -1,0 +1,28 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:upgrade-step="http://namespaces.zope.org/ftw.upgrade"
+    i18n_domain="ftw.calendar">
+
+    <include package="ftw.upgrade" file="meta.zcml" />
+
+    <!-- 1 -> 3000 -->
+    <genericsetup:upgradeStep
+        title=""
+        description=""
+        source="1"
+        destination="3000"
+        handler="ftw.calendar.upgrades.to3000.Upgrade"
+        profile="ftw.calendar:default"
+        />
+
+    <genericsetup:registerProfile
+        name="3000"
+        title="ftw.calendar.upgrades.3000"
+        description=""
+        directory="profiles/3000"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+</configure>

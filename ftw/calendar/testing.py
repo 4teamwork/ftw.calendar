@@ -51,7 +51,7 @@ class FtwCalendarLayer(PloneSandboxLayer):
         z2.installProduct(app, 'Products.DateRecurringIndex')
 
     def setUpPloneSite(self, portal):
-        applyProfile(portal, 'ftw.calendar:default')
+        applyProfile(portal, 'ftw.calendar:paevent')
         applyProfile(portal, 'plone.app.event:testing')
         set_timezone(tz='UTC')
 
