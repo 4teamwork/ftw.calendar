@@ -1,12 +1,17 @@
 from DateTime import DateTime
+from ftw.calendar.browser.interfaces import IEventCssKlassGenerator
 from ftw.calendar.browser.interfaces import IFtwCalendarJSONSourceProvider
 from plone.app.event.base import dates_for_display
 from plone.app.event.base import get_events
 from plone.app.event.base import RET_MODE_ACCESSORS
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
+from Products.ZCatalog.interfaces import ICatalogBrain
+from zope.component import adapts
 from zope.component import getMultiAdapter
+from zope.component import queryMultiAdapter
 from zope.interface import implements
+from zope.interface import Interface
 import json
 
 
@@ -31,20 +36,20 @@ class CalendarJSONSource(object):
         return json.dumps(self.result, sort_keys=True)
 
     def set_event_brains(self):
-        args = {
+        # Range defined by fullcalender
+        range_ = {
             'start': {
                 'query': DateTime(self.request.get('end')), 'range': 'max'},
             'end': {
                 'query': DateTime(self.request.get('start')), 'range': 'min'}}
 
-        self.set_brains_without_recurrence(args)
-        self.set_brains_with_recurrence(args)
+        self.set_brains_without_recurrence(range_)
+        self.set_brains_with_recurrence(range_)
 
-    def set_brains_without_recurrence(self, args):
+    def set_brains_without_recurrence(self, range_):
         if self.context.portal_type in ['Topic', 'Collection']:
             brains = self.context.aq_inner.queryCatalog(
-                REQUEST=self.request, **args)
-
+                REQUEST=self.request, **range_)
         else:
             portal_calendar = getToolByName(self.context, 'portal_calendar')
             catalog = getToolByName(self.context, 'portal_catalog')
@@ -62,7 +67,14 @@ class CalendarJSONSource(object):
 
     def format_brain(self, brain):
         editable = self.memberid in brain.Creator
-        allday = brain.end - brain.start > 1.0
+        # XXX This is no a good solution, the user should decide if it is
+        # a all day event or not unfortunately the old ATEvent does not support
+        # this field - therefore we just say if it's equal or longer than one
+        # day it's displayed as all day event.
+        allday = brain.end - brain.start >= 1.0
+        css = queryMultiAdapter(
+            (brain, self.request),
+            name="event_css_klass_generator").generate_css_klasses()
 
         return {"id": "UID_%s" % (brain.UID),
                 "title": brain.Title,
@@ -71,25 +83,20 @@ class CalendarJSONSource(object):
                 "url": brain.getURL(),
                 "editable": editable,
                 "allDay": allday,
-                "className": "state-" + str(brain.review_state) +
-                (editable and " editable" or ""),
+                "className": css + (editable and " editable" or ""),
                 "description": brain.Description}
 
-    def set_brains_with_recurrence(self, args):
-        start = args['start']
-        del args['start']
-        end = args['end']
-        del args['end']
-
-        args['path'] = {'depth': -1,
-                        'query': '/'.join(self.context.getPhysicalPath())}
+    def set_brains_with_recurrence(self, range_):
+        query = {}
+        query['path'] = {'depth': -1,
+                         'query': '/'.join(self.context.getPhysicalPath())}
 
         occurencies = get_events(self.context,
-                                 start=start,
-                                 end=end,
+                                 start=range_['start'],
+                                 end=range_['end'],
                                  expand=True,
                                  ret_mode=RET_MODE_ACCESSORS,
-                                 **args)
+                                 **query)
 
         for occ in occurencies:
             url = occ.url
@@ -99,6 +106,9 @@ class CalendarJSONSource(object):
 
     def format_occurency(self, occ):
         dates = dates_for_display(occ)
+        css = queryMultiAdapter(
+            (occ, self.request),
+            name="event_css_klass_generator").generate_css_klasses()
 
         return {"id": "UID_%s" % (occ.uid),
                 "title": occ.title,
@@ -107,7 +117,7 @@ class CalendarJSONSource(object):
                 "url": occ.url,
                 "editable": False,
                 "allDay": dates['whole_day'],
-                "className": "",
+                "className": css,
                 "description": occ.description}
 
 
@@ -125,6 +135,30 @@ class CalendarupdateView(BrowserView):
 
         response.setHeader('Content-Type', 'application/json')
         return source_provider.generate_json_calendar_source()
+
+
+class DefaultEventCssKlassGenerator(object):
+    implements(IEventCssKlassGenerator)
+    adapts(Interface, Interface)
+
+    def __init__(self, item, request):
+        self.item = item
+        self.request = request
+
+    def generate_css_klasses(self):
+        return ""
+
+
+class BrainEventCssKlassGenerator(object):
+    implements(IEventCssKlassGenerator)
+    adapts(ICatalogBrain, Interface)
+
+    def __init__(self, item, request):
+        self.item = item
+        self.request = request
+
+    def generate_css_klasses(self):
+        return "state-" + str(self.item.review_state)
 
 
 class CalendarDropView(BrowserView):

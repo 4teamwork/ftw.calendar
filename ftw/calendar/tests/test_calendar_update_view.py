@@ -37,8 +37,8 @@ class TestCalendarUpdateView(TestCase):
                        .within(folder)
                        .titled('Event')
                        .having(description='Description')
-                       .having(start=DateTime('2000/01/01 12:00'))
-                       .having(end=DateTime('2000/01/01 14:00')))
+                       .having(startDate=DateTime('2000/01/01 12:00'))
+                       .having(endDate=DateTime('2000/01/01 14:00')))
 
         expect = {u'id': u'UID_{0}'.format(IUUID(event)),
                   u'title': u'Event',
@@ -53,6 +53,26 @@ class TestCalendarUpdateView(TestCase):
         self.assertEquals(
             expect,
             json.loads(folder.restrictedTraverse('@@ftwcalendar_update')())[0])
+
+    def test_all_day_at_event(self):
+        """This tests the imho wrong behavior of 'all day' events.
+        It's implemented this way because there's no 'all day' field on the
+        default at event content type.
+        An 'all day' event is defined as end - start >= 1.0 """
+
+        folder = create(Builder('folder'))
+        event = create(Builder('at event')
+                       .within(folder)
+                       .titled('Event')
+                       .having(description='Description')
+                       .having(startDate=DateTime('2000/01/01 12:00'))
+                       .having(endDate=DateTime('2000/01/02 12:00')))
+
+        self.assertTrue(
+            json.loads(
+                folder.restrictedTraverse(
+                    '@@ftwcalendar_update')())[0]['allDay'],
+            'It should be an allday event.')
 
     def test_result_using_dx_event(self):
         folder = create(Builder('folder'))
@@ -76,8 +96,8 @@ class TestCalendarUpdateView(TestCase):
                       '2000/01/01 14:00:00 %s' % TZNAME).ISO8601(),
                   u'url': event.absolute_url().decode('utf-8'),
                   u'allDay': False,
-                  u'editable': True,
-                  u'className': u'state- editable',
+                  u'editable': False,
+                  u'className': u'',
                   u'description': u'Description'}
 
         self.assertEquals(
@@ -110,13 +130,13 @@ class TestCalendarUpdateView(TestCase):
         expect_event = {u'id': u'UID_{0}'.format(IUUID(event)),
                         u'title': u'Event',
                         u'start': DateTime(
-                            '2000/01/01 12:00:00 %s' % TZNAME).ISO8601(),
+                            u'2000/01/01 12:00:00 %s' % TZNAME).ISO8601(),
                         u'end': DateTime(
-                            '2000/01/01 14:00:00 %s' % TZNAME).ISO8601(),
+                            u'2000/01/01 14:00:00 %s' % TZNAME).ISO8601(),
                         u'url': event.absolute_url().decode('utf-8'),
                         u'allDay': False,
-                        u'editable': True,
-                        u'className': u'state- editable',
+                        u'editable': False,
+                        u'className': u'',
                         u'description': u'Description'}
 
         self.assertEquals(expect_event, result[0])

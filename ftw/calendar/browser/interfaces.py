@@ -23,3 +23,13 @@ class IFtwCalendarJSONSourceProvider(Interface):
         """ Reads the relevant information from the brain and generates a dict
             based on thos informations. This dict is later converted to JSON.
         """
+
+
+class IEventCssKlassGenerator(Interface):
+    """Returns css klasses for Event Items in the ftwfullcalendar view. """
+
+    def __init__(item, request):
+        """Adapts item and request"""
+
+    def generate_css_klasses():
+        """ returns a string with css klasses."""
