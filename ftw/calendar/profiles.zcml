@@ -15,7 +15,7 @@
   <genericsetup:registerProfile
       zcml:condition="installed plone.app.event"
       name="paevent"
-      title="ftw.calendar plone.app.event support"
+      title="ftw.calendar with plone.app.event support"
       directory="profiles/paevent"
       description='Fullcalender support for plone.app.event dx type'
       provides="Products.GenericSetup.interfaces.EXTENSION"
