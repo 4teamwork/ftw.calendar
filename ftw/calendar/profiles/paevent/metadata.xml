@@ -2,7 +2,7 @@
 <metadata>
   <version>1000</version>
     <dependencies>
-        <dependency>profile-ftw.calendar:default</dependency>
+        <dependency>profile-ftw.calendar:fixpaeventsetup</dependency>
         <dependency>profile-plone.app.event:default</dependency>
     </dependencies>
 </metadata>

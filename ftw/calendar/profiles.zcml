@@ -21,6 +21,15 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+  <genericsetup:registerProfile
+      zcml:condition="installed plone.app.event"
+      name="fixpaeventsetup"
+      title="ftw.calendar fix broken plone.app.event setup (run only if plone.app.event is not at least 1.2.1)"
+      directory="profiles/fixpaeventsetup"
+      description='Fix plone.app.event setup'
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
   <genericsetup:importStep
       name="ftw.calendar.paevent.custom.importstep"
       handler="ftw.calendar.setuphandlers.setup_paevent"
