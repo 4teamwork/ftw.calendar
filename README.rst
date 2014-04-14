@@ -11,8 +11,9 @@ Since all newer versions need plone.app.widgets.
 But 1.1b1 has a install bug. You first need to run the plone.app.registry
 import step manually, then the full setup. This package fixes this bug
 with custom setuphandler, which installs plone.app.event the right way.
+Simply import `ftw.calendar with plone.app.event support` profile.
 
-Since plone.app.event does not supports only plone >= 4.3.
+Since plone.app.event supports only plone >= 4.3.
 We drop the support for all older plone versions.
 
 Other plone.app.event versions may work or not.
@@ -30,6 +31,9 @@ Features
 
 - Integrated: ftw.calendar cares about your calendar settings.
   First day of the week is respected and displayed accordingly.
+
+- CSS Class generator adapter. This allows you to dynamically extend the css
+  class on a event item.
 
 Usage
 =====
