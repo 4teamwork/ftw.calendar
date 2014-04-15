@@ -4,6 +4,12 @@ Changelog
 3.0.0 (unreleased)
 ------------------
 
+- Add css klass generator adapter.
+  [mathias.leimgruber]
+
+- Support recurring events (plone.app.event.dx type).
+  [mathias.leimgruber]
+
 - Implement plone.app.event DX based contenttype support.
   [mathias.leimgruber]
 

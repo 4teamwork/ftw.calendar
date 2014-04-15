@@ -51,4 +51,7 @@
       layer=".interfaces.IFtwCalendarLayer"
       />
 
+    <adapter factory=".calendarupdateview.DefaultEventCssKlassGenerator" name="event_css_klass_generator"/>
+    <adapter factory=".calendarupdateview.BrainEventCssKlassGenerator" name="event_css_klass_generator"/>
+
 </configure>
