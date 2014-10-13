@@ -1,62 +1,83 @@
+from DateTime import DateTime
+from ftw.calendar.browser.interfaces import IFtwCalendarJSONSourceProvider
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
-from DateTime import DateTime
+from zope.component import getMultiAdapter
+from zope.interface import implements
 import simplejson as json
 
 
-class CalendarupdateView(BrowserView):
+class CalendarJSONSource(object):
+    implements(IFtwCalendarJSONSourceProvider)
 
-    """
-    Calendarupdate browser view
+    def __init__(self, context, request):
+        self.context = context
+        self.request = request
+
+        self.memberid = \
+            self.context.portal_membership.getAuthenticatedMember().id
+
+    def generate_json_calendar_source(self):
+        result = []
+
+        for brain in self.get_event_brains():
+            result.append(self.generate_source_dict_from_brain(brain))
+
+        return json.dumps(result, sort_keys=True)
+
+    def get_event_brains(self):
+        args = {
+            'start': {
+                'query': DateTime(self.request.get('end')), 'range': 'max'},
+            'end': {
+                'query': DateTime(self.request.get('start')), 'range': 'min'}}
+        if self.context.portal_type == 'Topic':
+            return self.context.aq_inner.queryCatalog(
+                REQUEST=self.request, **args)
+        else:
+            portal_calendar = getToolByName(self.context, 'portal_calendar')
+            catalog = getToolByName(self.context, 'portal_catalog')
+            return catalog(
+                portal_type=portal_calendar.getCalendarTypes(),
+                path={'depth': -1,
+                      'query': '/'.join(self.context.getPhysicalPath())}
+            )
+
+    def generate_source_dict_from_brain(self, brain):
+        if self.memberid in brain.Creator:
+            editable = True
+        else:
+            editable = False
+        if brain.end - brain.start > 1.0:
+            allday = True
+        else:
+            allday = False
+        return {"id": "UID_%s" % (brain.UID),
+                "title": brain.Title,
+                "start": brain.start.ISO8601(),
+                "end": brain.end.ISO8601(),
+                "url": brain.getURL(),
+                "editable": editable,
+                "allDay": allday,
+                "className": "state-" + str(brain.review_state) +
+                (editable and " editable" or ""),
+                "description": brain.Description}
+
+
+class CalendarupdateView(BrowserView):
+    """ Calendarupdate browser view
     """
 
     def __call__(self, *args, **kw):
         """Render JS Initialization code"""
 
         response = self.request.response
-        context = self.context
 
-        response.setHeader('Content-Type', 'application/x-javascript')
+        source_provider = getMultiAdapter((self.context, self.request),
+                                          name='ftw_calendar_source')
 
-        args = {
-            'start': {
-                'query': DateTime(self.request.get('end')), 'range': 'max'},
-            'end': {
-                'query': DateTime(self.request.get('start')), 'range': 'min'}}
-        if context.portal_type == 'Topic':
-            brains = context.aq_inner.queryCatalog(
-                REQUEST=self.request, **args)
-        else:
-            portal_calendar = getToolByName(context, 'portal_calendar')
-            catalog = getToolByName(context, 'portal_catalog')
-            brains = catalog(
-                portal_type=portal_calendar.getCalendarTypes(),
-                path={'depth': -1,
-                      'query': '/'.join(context.getPhysicalPath())}
-            )
-        result = []
-        memberid = self.context.portal_membership.getAuthenticatedMember().id
-
-        for brain in brains:
-            if memberid in brain.Creator:
-                editable = True
-            else:
-                editable = False
-            if brain.end - brain.start > 1.0:
-                allday = True
-            else:
-                allday = False
-            result.append({"id": "UID_%s" % (brain.UID),
-                           "title": brain.Title,
-                           "start": brain.start.ISO8601(),
-                           "end": brain.end.ISO8601(),
-                           "url": brain.getURL(),
-                           "editable": editable,
-                           "allDay": allday,
-                           "className": "state-" + str(brain.review_state) +
-                           (editable and " editable" or ""),
-                           "description": brain.Description})
-        return json.dumps(result, sort_keys=True)
+        response.setHeader('Content-Type', 'application/json')
+        return source_provider.generate_json_calendar_source()
 
 
 class CalendarDropView(BrowserView):

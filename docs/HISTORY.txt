@@ -4,7 +4,8 @@ Changelog
 2.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Refactored calendar source as adapter.
+  [lknoepfel]
 
 
 2.0.0 (2013-11-04)
