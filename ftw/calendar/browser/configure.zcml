@@ -1,10 +1,10 @@
-<configure 
+<configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:gs="http://namespaces.zope.org/genericsetup"
     xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="ftw.calendar">
-    
+
   <include package="plone.app.contentmenu" />
 
   <!-- Plone 3 -->
@@ -57,7 +57,7 @@
       permission="zope.Public"
       layer=".interfaces.IFtwCalendarLayer"
       />
-      
+
   <browser:page
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
       name="ftwcalendar_config.js"
@@ -66,5 +66,13 @@
       permission="zope.Public"
       layer=".interfaces.IFtwCalendarLayer"
       />
+
+  <!-- Adapter -->
+  <adapter
+    for="* *"
+    name="ftw_calendar_source"
+    provides=".interfaces.IFtwCalendarJSONSourceProvider"
+    factory=".calendarupdateview.CalendarJSONSource"
+    />
 
 </configure>

@@ -1,4 +1,3 @@
-from ftw.builder.session import BuilderSession
 from ftw.builder.testing import BUILDER_LAYER
 from ftw.builder.testing import functional_session_factory
 from ftw.builder.testing import set_builder_session_factory
@@ -8,6 +7,7 @@ from plone.app.testing import IntegrationTesting
 from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import PloneSandboxLayer
 from zope.configuration import xmlconfig
+import ftw.calendar.tests.builders
 
 
 class FtwCalendarLayer(PloneSandboxLayer):

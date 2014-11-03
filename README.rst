@@ -21,6 +21,9 @@ Features
 - Integrated: ftw.calendar cares about your calendar settings.
   First day of the week is respected and displayed accordingly.
 
+- Flexible: The calendar source is implemented as an adapter. Override it to modify
+  the title or add css classes.
+
 Usage
 =====
 
@@ -39,6 +42,45 @@ Use the ``ftwcalendar_view`` as the new default view on any collection.
 The default events-collection in a new plone site should work well,
 you probably should remove the date criterions though,
 since fullcalendar needs to be able to set them according to the selected month.
+
+Calendar Source
+===============
+
+For easy customization i recommend extending from the default calendar source
+implementation and override one of the three defined functions.
+
+This is an example from `ftw.meeting`:
+
+::
+
+    from ftw.calendar.browser.calendarupdateview import CalendarJSONSource
+
+    class MeetingCalendarJSONSource(CalendarJSONSource):
+
+        def generate_source_dict_from_brain(self, brain):
+            output = super(MeetingCalendarJSONSource,
+                           self).generate_source_dict_from_brain(brain)
+
+            if brain.Type == 'Meeting' and \
+               self.memberid in brain.getAttendeesOrUsers:
+
+                output['className'] += ' attendee'
+
+            return output
+
+`configure.zcml`:
+
+::
+
+    <configure zcml:condition="installed ftw.calendar">
+        <adapter
+            for="* ftw.meeting.interfaces.IMeetingLayer"
+            name="ftw_calendar_source"
+            provides="ftw.calendar.browser.interfaces.IFtwCalendarJSONSourceProvider"
+            factory=".calendarsource.MeetingCalendarJSONSource"
+            />
+    </configure>
+
 
 Troubleshooting
 ===============
@@ -74,4 +116,3 @@ Copyright
 This package is copyright by `4teamwork <http://www.4teamwork.ch/>`_.
 
 ``ftw.calendar`` is licensed under GNU General Public License, version 2.
-
