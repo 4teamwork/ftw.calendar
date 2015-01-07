@@ -4,6 +4,8 @@ from ftw.calendar.browser.interfaces import IFtwCalendarJSONSourceProvider
 from plone.app.event.base import dates_for_display
 from plone.app.event.base import get_events
 from plone.app.event.base import RET_MODE_ACCESSORS
+from plone.app.event.base import RET_MODE_BRAINS
+from plone.memoize import ram
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from Products.ZCatalog.interfaces import ICatalogBrain
@@ -15,6 +17,21 @@ from zope.interface import Interface
 import json
 
 
+def _data_with_recurence_cache(method, self, range_):
+    query = {}
+    query['path'] = {'depth': -1,
+                     'query': '/'.join(self.context.getPhysicalPath())}
+
+    brains = get_events(self.context,
+                        start=range_['start'],
+                        end=range_['end'],
+                        expand=True,
+                        ret_mode=RET_MODE_BRAINS,
+                        **query)
+    return tuple([brain.modified for brain in brains]) + (range_['start'],
+                                                          range_['end'])
+
+
 class CalendarJSONSource(object):
     implements(IFtwCalendarJSONSourceProvider)
 
@@ -22,20 +39,17 @@ class CalendarJSONSource(object):
         self.context = context
         self.request = request
         self.cache = None
-        self.results = None
 
         self.memberid = \
             self.context.portal_membership.getAuthenticatedMember().id
 
     def generate_json_calendar_source(self):
-        self.results = []
         self.cache = set()
 
-        self.set_event_brains()
+        return json.dumps(self.get_event_data(), sort_keys=True)
 
-        return json.dumps(self.result, sort_keys=True)
-
-    def set_event_brains(self):
+    def get_event_data(self):
+        result = []
         # Range defined by fullcalender
         range_ = {
             'start': {
@@ -43,10 +57,14 @@ class CalendarJSONSource(object):
             'end': {
                 'query': DateTime(self.request.get('start')), 'range': 'min'}}
 
-        self.set_brains_without_recurrence(range_)
-        self.set_brains_with_recurrence(range_)
+        result += self.get_data_with_recurrence(range_)
+        result += self.get_data_without_recurrence(range_)
 
-    def set_brains_without_recurrence(self, range_):
+        return result
+
+    def get_data_without_recurrence(self, range_):
+        result = []
+
         if self.context.portal_type in ['Topic', 'Collection']:
             brains = self.context.aq_inner.queryCatalog(
                 REQUEST=self.request, **range_)
@@ -63,7 +81,8 @@ class CalendarJSONSource(object):
             url = brain.getURL()
             if url not in self.cache:
                 self.cache.append(url)
-                self.result.append(self.format_brain(brain))
+                result.append(self.format_brain(brain))
+        return result
 
     def format_brain(self, brain):
         editable = self.memberid in brain.Creator
@@ -86,7 +105,9 @@ class CalendarJSONSource(object):
                 "className": css + (editable and " editable" or ""),
                 "description": brain.Description}
 
-    def set_brains_with_recurrence(self, range_):
+    @ram.cache(_data_with_recurence_cache)
+    def get_data_with_recurrence(self, range_):
+        result = []
         query = {}
         query['path'] = {'depth': -1,
                          'query': '/'.join(self.context.getPhysicalPath())}
@@ -102,7 +123,8 @@ class CalendarJSONSource(object):
             url = occ.url
             if url not in self.cache:
                 self.cache.append(url)
-                self.result.append(self.format_occurency(occ))
+                result.append(self.format_occurency(occ))
+        return result
 
     def format_occurency(self, occ):
         dates = dates_for_display(occ)

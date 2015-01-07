@@ -4,6 +4,9 @@ Changelog
 3.0.0 (unreleased)
 ------------------
 
+- Add ram cache for getting recurrence events dict.
+  [mathias.leimgruber]
+
 - Add css klass generator adapter.
   [mathias.leimgruber]
 
