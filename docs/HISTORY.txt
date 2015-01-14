@@ -7,6 +7,10 @@ Changelog
 - Refactored calendar source as adapter.
   [lknoepfel]
 
+- Better date formatting of dates displayed in the title and the column
+  headings.
+  [mbaechtold]
+
 
 2.0.0 (2013-11-04)
 ------------------
