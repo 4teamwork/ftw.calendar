@@ -60,6 +60,11 @@ $(document).ready(function() {
             week: '<tal:trans i18n:translate="title_week">MMM d[ yyyy]{ - [ MMM] d yyyy}</tal:trans>',
             day: '<tal:trans i18n:translate="title_day">dddd, MMM d, yyyy</tal:trans>'
         },
+        columnFormat: {
+            month: '<tal:trans i18n:translate="column_month">ddd</tal:trans>',
+            week: '<tal:trans i18n:translate="column_week">ddd M/d</tal:trans>',
+            day: '' // Don't render the column heading in the day view because the date is already displayed in the title.
+        },
 		editable: true,
 		startParam: "start:int",
 		endParam: "end:int",

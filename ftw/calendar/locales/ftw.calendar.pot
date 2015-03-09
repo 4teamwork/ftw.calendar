@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-01-25 16:29+0000\n"
+"POT-Creation-Date: 2015-01-14 14:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,253 +12,256 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
-"Language-Code: en\n"
-"Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: ftw.calendar\n"
-
-#. Default: "Calendar view"
-#: ./browser/configure.zcml:14
-msgid "Calendar view"
-msgstr ""
 
 #. Default: "All day"
-#: ./browser/calendar_config.pt:68
+#: ./ftw/calendar/browser/calendar_config.pt:74
 msgid "all_day"
 msgstr ""
 
 #. Default: "h:mm tt"
-#: ./browser/calendar_config.pt:66
+#: ./ftw/calendar/browser/calendar_config.pt:72
 msgid "axis_format"
 msgstr ""
 
 #. Default: "day"
-#: ./browser/calendar_config.pt:55
+#: ./ftw/calendar/browser/calendar_config.pt:56
 msgid "button_day"
 msgstr ""
 
 #. Default: "month"
-#: ./browser/calendar_config.pt:53
+#: ./ftw/calendar/browser/calendar_config.pt:54
 msgid "button_month"
 msgstr ""
 
 #. Default: "today"
-#: ./browser/calendar_config.pt:52
+#: ./ftw/calendar/browser/calendar_config.pt:53
 msgid "button_today"
 msgstr ""
 
 #. Default: "week"
-#: ./browser/calendar_config.pt:54
+#: ./ftw/calendar/browser/calendar_config.pt:55
 msgid "button_week"
 msgstr ""
 
+#. Default: "ddd"
+#: ./ftw/calendar/browser/calendar_config.pt:64
+msgid "column_month"
+msgstr ""
+
+#. Default: "ddd M/d"
+#: ./ftw/calendar/browser/calendar_config.pt:65
+msgid "column_week"
+msgstr ""
+
 #. Default: "Sunday"
-#: ./browser/calendar_config.pt:33
+#: ./ftw/calendar/browser/calendar_config.pt:34
 msgid "day_1"
 msgstr ""
 
 #. Default: "Monday"
-#: ./browser/calendar_config.pt:34
+#: ./ftw/calendar/browser/calendar_config.pt:35
 msgid "day_2"
 msgstr ""
 
 #. Default: "Tuesday"
-#: ./browser/calendar_config.pt:35
+#: ./ftw/calendar/browser/calendar_config.pt:36
 msgid "day_3"
 msgstr ""
 
 #. Default: "Wednesday"
-#: ./browser/calendar_config.pt:36
+#: ./ftw/calendar/browser/calendar_config.pt:37
 msgid "day_4"
 msgstr ""
 
 #. Default: "Thursday"
-#: ./browser/calendar_config.pt:37
+#: ./ftw/calendar/browser/calendar_config.pt:38
 msgid "day_5"
 msgstr ""
 
 #. Default: "Friday"
-#: ./browser/calendar_config.pt:38
+#: ./ftw/calendar/browser/calendar_config.pt:39
 msgid "day_6"
 msgstr ""
 
 #. Default: "Saturday"
-#: ./browser/calendar_config.pt:39
+#: ./ftw/calendar/browser/calendar_config.pt:40
 msgid "day_7"
 msgstr ""
 
 #. Default: "Sun"
-#: ./browser/calendar_config.pt:40
+#: ./ftw/calendar/browser/calendar_config.pt:41
 msgid "day_short_1"
 msgstr ""
 
 #. Default: "Mon"
-#: ./browser/calendar_config.pt:41
+#: ./ftw/calendar/browser/calendar_config.pt:42
 msgid "day_short_2"
 msgstr ""
 
 #. Default: "Tues"
-#: ./browser/calendar_config.pt:42
+#: ./ftw/calendar/browser/calendar_config.pt:43
 msgid "day_short_3"
 msgstr ""
 
 #. Default: "Wed"
-#: ./browser/calendar_config.pt:43
+#: ./ftw/calendar/browser/calendar_config.pt:44
 msgid "day_short_4"
 msgstr ""
 
 #. Default: "Thurs"
-#: ./browser/calendar_config.pt:44
+#: ./ftw/calendar/browser/calendar_config.pt:45
 msgid "day_short_5"
 msgstr ""
 
 #. Default: "Fri"
-#: ./browser/calendar_config.pt:45
+#: ./ftw/calendar/browser/calendar_config.pt:46
 msgid "day_short_6"
 msgstr ""
 
 #. Default: "Sat"
-#: ./browser/calendar_config.pt:46
+#: ./ftw/calendar/browser/calendar_config.pt:47
 msgid "day_short_7"
 msgstr ""
 
 #. Default: "January"
-#: ./browser/calendar_config.pt:9
+#: ./ftw/calendar/browser/calendar_config.pt:10
 msgid "month_1"
 msgstr ""
 
 #. Default: "October"
-#: ./browser/calendar_config.pt:18
+#: ./ftw/calendar/browser/calendar_config.pt:19
 msgid "month_10"
 msgstr ""
 
 #. Default: "November"
-#: ./browser/calendar_config.pt:19
+#: ./ftw/calendar/browser/calendar_config.pt:20
 msgid "month_11"
 msgstr ""
 
 #. Default: "December"
-#: ./browser/calendar_config.pt:20
+#: ./ftw/calendar/browser/calendar_config.pt:21
 msgid "month_12"
 msgstr ""
 
 #. Default: "February"
-#: ./browser/calendar_config.pt:10
+#: ./ftw/calendar/browser/calendar_config.pt:11
 msgid "month_2"
 msgstr ""
 
 #. Default: "March"
-#: ./browser/calendar_config.pt:11
+#: ./ftw/calendar/browser/calendar_config.pt:12
 msgid "month_3"
 msgstr ""
 
 #. Default: "April"
-#: ./browser/calendar_config.pt:12
+#: ./ftw/calendar/browser/calendar_config.pt:13
 msgid "month_4"
 msgstr ""
 
 #. Default: "May"
-#: ./browser/calendar_config.pt:13
+#: ./ftw/calendar/browser/calendar_config.pt:14
 msgid "month_5"
 msgstr ""
 
 #. Default: "June"
-#: ./browser/calendar_config.pt:14
+#: ./ftw/calendar/browser/calendar_config.pt:15
 msgid "month_6"
 msgstr ""
 
 #. Default: "July"
-#: ./browser/calendar_config.pt:15
+#: ./ftw/calendar/browser/calendar_config.pt:16
 msgid "month_7"
 msgstr ""
 
 #. Default: "August"
-#: ./browser/calendar_config.pt:16
+#: ./ftw/calendar/browser/calendar_config.pt:17
 msgid "month_8"
 msgstr ""
 
 #. Default: "September"
-#: ./browser/calendar_config.pt:17
+#: ./ftw/calendar/browser/calendar_config.pt:18
 msgid "month_9"
 msgstr ""
 
 #. Default: "Jan"
-#: ./browser/calendar_config.pt:21
+#: ./ftw/calendar/browser/calendar_config.pt:22
 msgid "month_short_1"
 msgstr ""
 
 #. Default: "Oct"
-#: ./browser/calendar_config.pt:30
+#: ./ftw/calendar/browser/calendar_config.pt:31
 msgid "month_short_10"
 msgstr ""
 
 #. Default: "Nov"
-#: ./browser/calendar_config.pt:31
+#: ./ftw/calendar/browser/calendar_config.pt:32
 msgid "month_short_11"
 msgstr ""
 
 #. Default: "Dec"
-#: ./browser/calendar_config.pt:32
+#: ./ftw/calendar/browser/calendar_config.pt:33
 msgid "month_short_12"
 msgstr ""
 
 #. Default: "Feb"
-#: ./browser/calendar_config.pt:22
+#: ./ftw/calendar/browser/calendar_config.pt:23
 msgid "month_short_2"
 msgstr ""
 
 #. Default: "Mar"
-#: ./browser/calendar_config.pt:23
+#: ./ftw/calendar/browser/calendar_config.pt:24
 msgid "month_short_3"
 msgstr ""
 
 #. Default: "Apr"
-#: ./browser/calendar_config.pt:24
+#: ./ftw/calendar/browser/calendar_config.pt:25
 msgid "month_short_4"
 msgstr ""
 
 #. Default: "May"
-#: ./browser/calendar_config.pt:25
+#: ./ftw/calendar/browser/calendar_config.pt:26
 msgid "month_short_5"
 msgstr ""
 
 #. Default: "June"
-#: ./browser/calendar_config.pt:26
+#: ./ftw/calendar/browser/calendar_config.pt:27
 msgid "month_short_6"
 msgstr ""
 
 #. Default: "July"
-#: ./browser/calendar_config.pt:27
+#: ./ftw/calendar/browser/calendar_config.pt:28
 msgid "month_short_7"
 msgstr ""
 
 #. Default: "Aug"
-#: ./browser/calendar_config.pt:28
+#: ./ftw/calendar/browser/calendar_config.pt:29
 msgid "month_short_8"
 msgstr ""
 
 #. Default: "Sept"
-#: ./browser/calendar_config.pt:29
+#: ./ftw/calendar/browser/calendar_config.pt:30
 msgid "month_short_9"
 msgstr ""
 
 #. Default: "h:mm tt"
-#: ./browser/calendar_config.pt:71
+#: ./ftw/calendar/browser/calendar_config.pt:77
 msgid "time_format"
 msgstr ""
 
 #. Default: "dddd, MMM d, yyyy"
-#: ./browser/calendar_config.pt:60
+#: ./ftw/calendar/browser/calendar_config.pt:61
 msgid "title_day"
 msgstr ""
 
 #. Default: "MMMM yyyy"
-#: ./browser/calendar_config.pt:58
+#: ./ftw/calendar/browser/calendar_config.pt:59
 msgid "title_month"
 msgstr ""
 
 #. Default: "MMM d[ yyyy]{ - [ MMM] d yyyy}"
-#: ./browser/calendar_config.pt:59
+#: ./ftw/calendar/browser/calendar_config.pt:60
 msgid "title_week"
 msgstr ""
+
 
