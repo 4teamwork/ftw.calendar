@@ -104,9 +104,9 @@ Runs with `Plone <http://www.plone.org/>`_ `4.1`, `4.2`.
 Links
 =====
 
-- Main github project repository: https://github.com/4teamwork/ftw.calendar
-- Issue tracker: https://github.com/4teamwork/ftw.calendar/issues
-- Package on pypi: http://pypi.python.org/pypi/ftw.calendar
+- Github: https://github.com/4teamwork/ftw.calendar
+- Issues: https://github.com/4teamwork/ftw.calendar/issues
+- Pypi: http://pypi.python.org/pypi/ftw.calendar
 - Continuous integration: https://jenkins.4teamwork.ch/search?q=ftw.calendar
 
 
