@@ -35,6 +35,7 @@ setup(name='ftw.calendar',
       tests_require=tests_require,
       extras_require=dict(tests=tests_require),
       install_requires=[
+          'Plone',
           'setuptools',
           'simplejson',
           # -*- Extra requirements: -*-
