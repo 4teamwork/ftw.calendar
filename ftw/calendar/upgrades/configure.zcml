@@ -1,0 +1,14 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
+
+    <genericsetup:upgradeStep
+        title="Upgrade to version 2"
+        description="In version two the resources are served only on the
+                     calendar view"
+        source="1"
+        destination="2"
+        handler=".to0002.clean_registries"
+        profile="ftw.calendar:default"
+    />
+
+</configure>

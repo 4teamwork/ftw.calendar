@@ -4,8 +4,10 @@ Changelog
 2.1.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Do not register fullcalendar resources globally to avoid conflicts
+  with other packages (e.g. wildcardfoldercontents).
+- Do not use the skins folder anymore
+  [ale-rt]
 
 2.1.0 (2015-04-30)
 ------------------
