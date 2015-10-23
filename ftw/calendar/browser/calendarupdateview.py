@@ -31,7 +31,7 @@ class CalendarJSONSource(object):
                 'query': DateTime(self.request.get('end')), 'range': 'max'},
             'end': {
                 'query': DateTime(self.request.get('start')), 'range': 'min'}}
-        if self.context.portal_type == 'Topic':
+        if self.context.portal_type in ['Topic', 'Collection']:
             return self.context.aq_inner.queryCatalog(
                 REQUEST=self.request, **args)
         else:
