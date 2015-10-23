@@ -4,7 +4,8 @@ Changelog
 2.1.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Enable calender view for new-style Plone collections.
+  [mbaechtold]
 
 
 2.1.0 (2015-04-30)
