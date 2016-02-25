@@ -1,14 +1,63 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="ftw.calendar">
 
   <genericsetup:registerProfile
-      name="default"
-      title="4teamwork Calendar"
-      directory="profiles/default"
+      name="base"
+      title="4teamwork Calendar base profile"
+      directory="profiles/base"
       description='Calendar view based on FullCalendar.'
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
+
+  <genericsetup:registerProfile
+      zcml:condition="not-have plone-5"
+      name="default"
+      title="4teamwork Calendar Plone4 profile"
+      directory="profiles/plone4"
+      description="Installs the ftw.calendar add-on Plone4 specific configuration"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:registerProfile
+      zcml:condition="have plone-5"
+      name="default"
+      title="4teamwork Calendar Plone5 profile"
+      directory="profiles/plone5"
+      description="Installs the ftw.calendar add-on Plone5 specific configuration"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:registerProfile
+      name="uninstall-base"
+      title="4teamwork Calendar base uninstall profile"
+      directory="profiles/uninstall-base"
+      description="ftw.calendar base uninstall profile."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:registerProfile
+      zcml:condition="not-have plone-5"
+      name="uninstall"
+      title="ftw.calendar (uninstall for Plone 4)"
+      directory="profiles/uninstall-plone4"
+      description="Uninstalls ftw.calendar"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:registerProfile
+      zcml:condition="have plone-5"
+      name="uninstall"
+      title="ftw.calendar (uninstall for Plone 5)"
+      directory="profiles/uninstall-plone5"
+      description="Uninstalls ftw.calendar"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <utility factory=".setuphandlers.HiddenProfiles" name="ftw.calendar" />
+  <utility factory=".setuphandlers.HiddenProducts" name="ftw.calendar" />
 
 </configure>

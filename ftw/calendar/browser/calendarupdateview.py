@@ -35,10 +35,14 @@ class CalendarJSONSource(object):
             return self.context.aq_inner.queryCatalog(
                 REQUEST=self.request, **args)
         else:
-            portal_calendar = getToolByName(self.context, 'portal_calendar')
             catalog = getToolByName(self.context, 'portal_catalog')
-            return catalog(
+            portal_calendar = getToolByName(self.context, 'portal_calendar', None)
+            if portal_calendar:
                 portal_type=portal_calendar.getCalendarTypes(),
+            else:
+                portal_type=None
+            return catalog(
+                portal_type=portal_type,
                 path={'depth': -1,
                       'query': '/'.join(self.context.getPhysicalPath())}
             )
