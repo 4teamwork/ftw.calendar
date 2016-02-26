@@ -69,7 +69,7 @@ $(document).ready(function() {
 		editable: true,
 		startParam: "start:int",
 		endParam: "end:int",
-		events: $('base').attr('href') + "/ftwcalendar_update",
+        events: ($('base').attr('href') || $('body').data('base-url')) + "/ftwcalendar_update",
     	axisFormat: '<tal:trans i18n:translate="axis_format">h:mm tt</tal:trans>',
         allDaySlot: true,
         allDayText: '<tal:trans i18n:translate="all_day">All day</tal:trans>',

@@ -2,7 +2,7 @@
 <metadata>
   <version>1</version>
   <dependencies>
-    <dependency>profile-ftw.calendar:base</dependency>
+    <dependency>profile-ftw.calendar:general</dependency>
   </dependencies>
 </metadata>
 

@@ -1,3 +1,4 @@
+import datetime
 from DateTime import DateTime
 from ftw.calendar.browser.interfaces import IFtwCalendarJSONSourceProvider
 from Products.CMFCore.utils import getToolByName
@@ -32,8 +33,7 @@ class CalendarJSONSource(object):
             'end': {
                 'query': DateTime(self.request.get('start')), 'range': 'min'}}
         if self.context.portal_type in ['Topic', 'Collection']:
-            return self.context.aq_inner.queryCatalog(
-                REQUEST=self.request, **args)
+            return self.context.aq_inner.queryCatalog(args)
         else:
             catalog = getToolByName(self.context, 'portal_catalog')
             portal_calendar = getToolByName(self.context, 'portal_calendar', None)
@@ -48,24 +48,24 @@ class CalendarJSONSource(object):
             )
 
     def generate_source_dict_from_brain(self, brain):
-        if self.memberid in brain.Creator:
+        if self.memberid in brain.Creator():
             editable = True
         else:
             editable = False
-        if brain.end - brain.start > 1.0:
+        if brain.end - brain.start > datetime.timedelta(days=1):
             allday = True
         else:
             allday = False
         return {"id": "UID_%s" % (brain.UID),
-                "title": brain.Title,
-                "start": brain.start.ISO8601(),
-                "end": brain.end.ISO8601(),
+                "title": brain.Title(),
+                "start": brain.start.isoformat(),
+                "end": brain.end.isoformat(),
                 "url": brain.getURL(),
                 "editable": editable,
                 "allDay": allday,
                 "className": "state-" + str(brain.review_state) +
                 (editable and " editable" or ""),
-                "description": brain.Description}
+                "description": brain.Description()}
 
 
 class CalendarupdateView(BrowserView):

@@ -6,7 +6,7 @@
     i18n_domain="ftw.calendar">
 
   <genericsetup:registerProfile
-      name="base"
+      name="general"
       title="4teamwork Calendar base profile"
       directory="profiles/base"
       description='Calendar view based on FullCalendar.'
@@ -15,7 +15,7 @@
 
   <genericsetup:registerProfile
       zcml:condition="not-have plone-5"
-      name="addable"
+      name="default"
       title="4teamwork Calendar Plone4 profile"
       directory="profiles/plone4"
       description="Installs the ftw.calendar add-on Plone4 specific configuration"
@@ -24,7 +24,7 @@
 
   <genericsetup:registerProfile
       zcml:condition="have plone-5"
-      name="addable"
+      name="default"
       title="4teamwork Calendar Plone5 profile"
       directory="profiles/plone5"
       description="Installs the ftw.calendar add-on Plone5 specific configuration"
