@@ -38,7 +38,7 @@ class CalendarJSONSource(object):
             catalog = getToolByName(self.context, 'portal_catalog')
             portal_calendar = getToolByName(self.context, 'portal_calendar', None)
             if portal_calendar:
-                portal_type=portal_calendar.getCalendarTypes(),
+                portal_type=portal_calendar.getCalendarTypes()
             else:
                 portal_type=None
             return catalog(
