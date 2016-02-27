@@ -48,24 +48,45 @@ class CalendarJSONSource(object):
             )
 
     def generate_source_dict_from_brain(self, brain):
-        if self.memberid in brain.Creator():
+        #plone 4-5 compat
+        creator = brain.Creator
+        if callable(creator):
+            creator = creator()
+        title = brain.Title
+        if callable(title):
+            title = title()
+        description = brain.Description
+        if callable(description):
+            description = description()
+        start = brain.start
+        end = brain.end
+        iso = hasattr(start, 'isoformat') and 'isoformat' or 'ISO8601'
+        start = getattr(start, iso)()
+        end = getattr(end, iso)()
+
+        if type(brain.end - brain.start) == type(1.0):
+            delta = 1.0
+        else:
+            delta = datetime.timedelta(days=1)
+            
+        if self.memberid in creator:
             editable = True
         else:
             editable = False
-        if brain.end - brain.start > datetime.timedelta(days=1):
+        if brain.end - brain.start > delta:
             allday = True
         else:
             allday = False
         return {"id": "UID_%s" % (brain.UID),
-                "title": brain.Title(),
-                "start": brain.start.isoformat(),
-                "end": brain.end.isoformat(),
+                "title": title,
+                "start": start,
+                "end": end,
                 "url": brain.getURL(),
                 "editable": editable,
                 "allDay": allday,
                 "className": "state-" + str(brain.review_state) +
                 (editable and " editable" or ""),
-                "description": brain.Description()}
+                "description": description}
 
 
 class CalendarupdateView(BrowserView):
