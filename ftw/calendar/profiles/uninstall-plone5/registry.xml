@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<registry>
+
+  <records prefix="plone.bundles/ftwcalendar"
+            interface='Products.CMFPlone.interfaces.IBundleRegistry'
+            remove="true">
+  </records>
+
+</registry>
+
