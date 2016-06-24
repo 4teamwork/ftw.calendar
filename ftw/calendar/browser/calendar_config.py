@@ -3,6 +3,7 @@ from zope.component.hooks import getSite
 from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
 
+
 class CalendarConfigView(BrowserView):
     """
     Calendar configuration view.
@@ -12,7 +13,7 @@ class CalendarConfigView(BrowserView):
         """
         Returns the first day of the week as an integer.
         """
-        
+
         calendar_tool = getToolByName(self.context, 'portal_calendar', None)
         if calendar_tool:
             first = calendar_tool.getFirstWeekDay()

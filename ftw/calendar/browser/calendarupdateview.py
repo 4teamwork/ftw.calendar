@@ -36,11 +36,12 @@ class CalendarJSONSource(object):
             return self.context.aq_inner.queryCatalog(args)
         else:
             catalog = getToolByName(self.context, 'portal_catalog')
-            portal_calendar = getToolByName(self.context, 'portal_calendar', None)
+            portal_calendar = getToolByName(self.context, 'portal_calendar',
+                                            None)
             if portal_calendar:
-                portal_type=portal_calendar.getCalendarTypes()
+                portal_type = portal_calendar.getCalendarTypes()
             else:
-                portal_type=None
+                portal_type = None
             return catalog(
                 portal_type=portal_type,
                 path={'depth': -1,
@@ -48,7 +49,7 @@ class CalendarJSONSource(object):
             )
 
     def generate_source_dict_from_brain(self, brain):
-        #plone 4-5 compat
+        #  plone 4-5 compat
         creator = brain.Creator
         if callable(creator):
             creator = creator()
@@ -64,11 +65,11 @@ class CalendarJSONSource(object):
         start = getattr(start, iso)()
         end = getattr(end, iso)()
 
-        if type(brain.end - brain.start) == type(1.0):
+        if isinstance(brain.end - brain.start, float):
             delta = 1.0
         else:
             delta = datetime.timedelta(days=1)
-            
+
         if self.memberid in creator:
             editable = True
         else:
