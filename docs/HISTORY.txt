@@ -4,7 +4,8 @@ Changelog
 2.1.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Added german translation for menuitem.
+  [lknoepfel]
 
 
 2.1.1 (2015-10-23)
