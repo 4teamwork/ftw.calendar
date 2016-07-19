@@ -6,6 +6,15 @@ from Products.Five import BrowserView
 from zope.component import getMultiAdapter
 from zope.interface import implements
 import simplejson as json
+from plone.app.event.base import get_events
+from plone.app.event.base import RET_MODE_ACCESSORS
+from email.utils import formatdate
+from datetime import timedelta
+import time
+
+
+def rfc822_dt(dt):
+    return formatdate(time.mktime(dt.timetuple()))
 
 
 class CalendarJSONSource(object):
@@ -19,12 +28,7 @@ class CalendarJSONSource(object):
             self.context.portal_membership.getAuthenticatedMember().id
 
     def generate_json_calendar_source(self):
-        result = []
-
-        for brain in self.get_event_brains():
-            result.append(self.generate_source_dict_from_brain(brain))
-
-        return json.dumps(result, sort_keys=True)
+        return json.dumps(list(self.all_events()), sort_keys=True)
 
     def get_event_brains(self):
         args = {
@@ -48,6 +52,27 @@ class CalendarJSONSource(object):
                       'query': '/'.join(self.context.getPhysicalPath())}
             )
 
+    def all_events(self):
+        events = get_events(self.context,
+                            ret_mode=RET_MODE_ACCESSORS,
+                            expand=True,
+                            start=DateTime(self.request.get('start')),
+                            end=DateTime(self.request.get('end')))
+
+        for event in events:
+            duration = event.end - event.start
+            yield {"id": "UID_%s" % (event.uid),
+                   "title": event.title,
+                   "location": event.location,
+                   "start": rfc822_dt(event.start),
+                   "end": rfc822_dt(event.end),
+                   "url": event.url,
+                   "editable": False,
+                   "allDay": (event.whole_day or duration >
+                              timedelta(seconds=86390)),
+                   "className": '',
+                   "description": event.description}
+
     def generate_source_dict_from_brain(self, brain):
         #  plone 4-5 compat
         creator = brain.Creator
@@ -68,7 +93,9 @@ class CalendarJSONSource(object):
         if isinstance(brain.end - brain.start, float):
             delta = 1.0
         else:
-            delta = datetime.timedelta(days=1)
+            # delta set to slightly (10 seconds) shorter than a full day so
+            # whole day events are handled correctly
+            delta = datetime.timedelta(seconds=86390)
 
         if self.memberid in creator:
             editable = True

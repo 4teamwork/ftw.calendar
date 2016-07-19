@@ -1,4 +1,4 @@
-from ftw.builder import Builder
+from ftw.builder.dexterity import DexterityBuilder
 from ftw.builder import create
 from ftw.calendar.browser.calendarupdateview import CalendarJSONSource
 from ftw.calendar.browser.interfaces import IFtwCalendarJSONSourceProvider
@@ -20,8 +20,7 @@ class TestCalendarSource(TestCase):
         self.portal = self.layer['portal']
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
         login(self.portal, TEST_USER_NAME)
-
-        self.event = create(Builder('event'))
+        self.event = create(DexterityBuilder('event'))
 
     def test_adapter_provides_methods(self):
         verifyObject(IFtwCalendarJSONSourceProvider, CalendarJSONSource(
