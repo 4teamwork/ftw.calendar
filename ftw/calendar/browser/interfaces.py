@@ -15,11 +15,11 @@ class IFtwCalendarJSONSourceProvider(Interface):
             is as JSON.
         """
 
-    def get_event_brains():
-        """ Returns list of brains to display in the current calendar view.
+    def get_event_data():
+        """ Returns list of events to display in the current calendar view.
         """
 
-    def generate_source_dict_from_brain(brain):
+    def format_brain(brain):
         """ Reads the relevant information from the brain and generates a dict
             based on thos informations. This dict is later converted to JSON.
         """

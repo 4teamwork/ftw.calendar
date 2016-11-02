@@ -31,12 +31,10 @@ class TestCalendarSource(TestCase):
         adapter = getMultiAdapter((self.portal, self.portal.REQUEST),
                                   name='ftw_calendar_source')
 
-        self.assertEquals(1,
-                          len(adapter.get_event_brains()))
-
-        brain = adapter.get_event_brains()[0]
+        event_data = adapter.get_event_data()
+        self.assertEquals(1, len(event_data))
 
         self.assertEquals(
             ['className', 'start', 'allDay', 'end', 'description',
              'title', 'url', 'editable', 'id'],
-            adapter.generate_source_dict_from_brain(brain).keys())
+            event_data[0].keys())

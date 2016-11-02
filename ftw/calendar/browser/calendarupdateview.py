@@ -38,13 +38,13 @@ class CalendarJSONSource(object):
     def __init__(self, context, request):
         self.context = context
         self.request = request
-        self.cache = None
+        self.cache = []
 
         self.memberid = \
             self.context.portal_membership.getAuthenticatedMember().id
 
     def generate_json_calendar_source(self):
-        self.cache = set()
+        self.cache = []
 
         return json.dumps(self.get_event_data(), sort_keys=True)
 
