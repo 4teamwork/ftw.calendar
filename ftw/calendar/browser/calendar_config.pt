@@ -1,5 +1,4 @@
-<tal:script i18n:domain="ftw.calendar" 
-    tal:define="set_mimetype python:request.response.setHeader('Content-Type', 'text/javascript');">
+<tal:script i18n:domain="ftw.calendar">
 $(document).ready(function() {
 	$('#calendar').fullCalendar({
 		header: {
@@ -87,7 +86,7 @@ $(document).ready(function() {
                     'dayDelta': dayDelta,
                     'minuteDelta': minuteDelta
                 },
-                success: function(msg) {      
+                success: function(msg) {
                 }
             });
         },

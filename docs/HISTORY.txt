@@ -4,6 +4,8 @@ Changelog
 2.1.2 (unreleased)
 ------------------
 
+- Fix jQuery / Diazo issue: set proper response headers. [jone]
+
 - Added german translation for menuitem.
   [lknoepfel]
 
