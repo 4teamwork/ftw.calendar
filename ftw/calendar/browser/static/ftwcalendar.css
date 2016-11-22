@@ -1,0 +1,24 @@
+div.fc {
+  line-height: 1.1;
+}
+
+#content div.fc table {
+  margin-bottom: 0;
+}
+
+#content div.fc a {
+  border-style: none solid;
+}
+
+.fc-view {
+  z-index: 0;
+}
+
+#content div.fc-event a,
+#content div.fc-event a:hover {
+  color: inherit;
+}
+
+div.fc-event.editable a {
+  background-image: url(/++resource++ftw.calendar/transp.png);
+}

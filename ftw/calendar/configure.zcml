@@ -9,7 +9,8 @@
   <i18n:registerTranslations directory="locales" />
 
   <include file="profiles.zcml" />
-  <include file="skins.zcml" />
   
   <include package=".browser" />
+  <include package=".upgrades" />
+
 </configure>
