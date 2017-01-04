@@ -40,7 +40,8 @@ class CalendarJSONSource(object):
             return catalog(
                 portal_type=portal_calendar.getCalendarTypes(),
                 path={'depth': -1,
-                      'query': '/'.join(self.context.getPhysicalPath())}
+                      'query': '/'.join(self.context.getPhysicalPath())},
+                **args
             )
 
     def generate_source_dict_from_brain(self, brain):

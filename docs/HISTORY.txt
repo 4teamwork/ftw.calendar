@@ -6,6 +6,8 @@ Changelog
 
 - Nothing changed yet.
 
+- Fixed bug where date range was not applied.
+  [lknoepfel]
 
 2.1.2 (2016-11-17)
 ------------------
