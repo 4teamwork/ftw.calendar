@@ -1,4 +1,5 @@
 from DateTime import DateTime
+from ftw.calendar.browser.interfaces import IFtwCalendarEventCreator
 from ftw.calendar.browser.interfaces import IFtwCalendarJSONSourceProvider
 from plone import api
 from Products.CMFCore.utils import getToolByName
@@ -64,7 +65,7 @@ class CalendarJSONSource(object):
                 "editable": editable,
                 "allDay": allday,
                 "className": "state-" + str(brain.review_state) +
-                (editable and " editable" or ""),
+                             (editable and " editable" or ""),
                 "description": brain.Description}
 
 
@@ -85,7 +86,6 @@ class CalendarupdateView(BrowserView):
 
 
 class CalendarDropView(BrowserView):
-
     def __call__(self):
         request = self.context.REQUEST
 
@@ -98,7 +98,7 @@ class CalendarDropView(BrowserView):
         obj = brains[0].getObject()
         startDate, endDate = obj.startDate, obj.endDate
         dayDelta, minuteDelta = float(request.get('dayDelta')), \
-            float(request.get('minuteDelta'))
+                                float(request.get('minuteDelta'))
 
         startDate = startDate + dayDelta + minuteDelta / 1440.0
         endDate = endDate + dayDelta + minuteDelta / 1440.0
@@ -110,7 +110,6 @@ class CalendarDropView(BrowserView):
 
 
 class CalendarResizeView(BrowserView):
-
     def __call__(self):
         request = self.context.REQUEST
         event_uid = request.get('event')
@@ -120,7 +119,7 @@ class CalendarResizeView(BrowserView):
         obj = brains[0].getObject()
         endDate = obj.endDate
         dayDelta, minuteDelta = float(request.get('dayDelta')), \
-            float(request.get('minuteDelta'))
+                                float(request.get('minuteDelta'))
 
         endDate = endDate + dayDelta + minuteDelta / 1440.0
 
@@ -130,23 +129,16 @@ class CalendarResizeView(BrowserView):
 
 
 class CalendarAddView(BrowserView):
-
     def __call__(self):
         request = self.context.REQUEST
         title = request.get('title')
-        start_date = DateTime(int(request.get('start_date')))
+        start_date = DateTime(int(request.get('startdate')))
 
         if not title or not start_date:
             raise ValueError()
 
-        event = self.createEvent(title, start_date)
+        eventCreator = getMultiAdapter((self.context, request),
+                                       IFtwCalendarEventCreator)
+        event = eventCreator.createEvent(title, start_date)
 
-        return event.absolute_url() + '/edit'
-
-    def createEvent(self, title, start_date):
-
-        return api.content.create(container=self.context,
-                                  type="EventPage",
-                                  title=title,
-                                  startDate=start_date,
-                                  endDate=start_date)
+        self.request.RESPONSE.redirect(event.absolute_url() + '/edit')

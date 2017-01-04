@@ -1,6 +1,10 @@
+from ftw.calendar.browser.interfaces import IFtwCalendarEventCreator
 from plone import api
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
+from zope.component import ComponentLookupError
+from zope.component import getMultiAdapter
+
 
 class CalendarConfigView(BrowserView):
     """
@@ -20,4 +24,11 @@ class CalendarConfigView(BrowserView):
         return (first < 6 and first + 1) or 0
 
     def can_add_content(self):
-        return api.user.has_permission('Add portal content', obj=self.context)
+        try:
+            eventCreator = getMultiAdapter((self.context, self.request),
+                                           IFtwCalendarEventCreator)
+        except ComponentLookupError:
+            return False
+
+        return eventCreator.getEventType() in \
+               self.context.getImmediatelyAddableTypes()
