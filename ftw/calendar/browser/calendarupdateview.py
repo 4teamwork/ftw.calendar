@@ -1,5 +1,6 @@
 from DateTime import DateTime
 from ftw.calendar.browser.interfaces import IFtwCalendarJSONSourceProvider
+from plone import api
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from zope.component import getMultiAdapter
@@ -45,10 +46,9 @@ class CalendarJSONSource(object):
             )
 
     def generate_source_dict_from_brain(self, brain):
-        if self.memberid in brain.Creator:
-            editable = True
-        else:
-            editable = False
+        event = brain.getObject()
+        editable = api.user.has_permission('Edit', obj=event)
+
         if brain.end - brain.start > 1.0:
             allday = True
         else:

@@ -38,6 +38,7 @@ setup(name='ftw.calendar',
           'Plone',
           'setuptools',
           'simplejson',
+          'plone.api',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
