@@ -81,6 +81,48 @@ This is an example from `ftw.meeting`:
             />
     </configure>
 
+Calendar Event Creator
+======================
+
+Calendar entries can be created by clicking a date/time on the calendar widget.
+Since `ftw.calendar` does not know which event type is used in a particular
+project it has to be defined by the product using `ftw.calendar`. There is no
+default implementation! It won't work unless you implement it in your product.
+
+This is done using an adapter. Here is an example from `ftw.contentpage`:
+
+::
+
+    from ftw.calendar.browser.interfaces import IFtwCalendarEventCreator
+    from plone import api
+    from zope.interface import implements
+
+
+    class CalendarEventPageCreator(object):
+        implements(IFtwCalendarEventCreator)
+
+        def __init__(self, context, request):
+            self.context = context
+            self.request = request
+
+        def getEventType(self):
+            return "EventPage"
+
+        def createEvent(self, title, start_date):
+            return api.content.create(container=self.context,
+                                      type="EventPage",
+                                      title=title,
+                                      startDate=start_date,
+                                      endDate=start_date)
+
+`configure.zcml`
+::
+
+    <adapter
+       for="* *"
+       provides="ftw.calendar.browser.interfaces.IFtwCalendarEventCreator"
+       factory=".adapters.CalendarEventPageCreator"
+       />
 
 Troubleshooting
 ===============

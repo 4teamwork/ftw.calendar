@@ -127,3 +127,26 @@ class CalendarResizeView(BrowserView):
         obj.setEndDate(endDate)
         obj.reindexObject()
         return True
+
+
+class CalendarAddView(BrowserView):
+
+    def __call__(self):
+        request = self.context.REQUEST
+        title = request.get('title')
+        start_date = DateTime(int(request.get('start_date')))
+
+        if not title or not start_date:
+            raise ValueError()
+
+        event = self.createEvent(title, start_date)
+
+        return event.absolute_url() + '/edit'
+
+    def createEvent(self, title, start_date):
+
+        return api.content.create(container=self.context,
+                                  type="EventPage",
+                                  title=title,
+                                  startDate=start_date,
+                                  endDate=start_date)

@@ -59,6 +59,14 @@
       />
 
   <browser:page
+      for="*"
+      name="ftwcalendar_add"
+      class=".calendarupdateview.CalendarAddView"
+      permission="zope.Public"
+      layer=".interfaces.IFtwCalendarLayer"
+      />
+
+  <browser:page
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
       name="ftwcalendar_config.js"
       class=".calendar_config.CalendarConfigView"

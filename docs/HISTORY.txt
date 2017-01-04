@@ -6,6 +6,10 @@ Changelog
 
 - Nothing changed yet.
 
+- Add functionality to add events by clicking on a date in the calendar.
+  There is no default implementation. Products have to implement it for their event types.
+  [lknoepfel]
+
 - Check edit permission on event to enable drag&drop.
   [lknoepfel]
 

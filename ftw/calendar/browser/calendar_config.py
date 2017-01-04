@@ -1,5 +1,6 @@
-from Products.Five import BrowserView
+from plone import api
 from Products.CMFCore.utils import getToolByName
+from Products.Five import BrowserView
 
 class CalendarConfigView(BrowserView):
     """
@@ -18,3 +19,6 @@ class CalendarConfigView(BrowserView):
         calendar_tool = getToolByName(self.context, 'portal_calendar')
         first = calendar_tool.getFirstWeekDay()
         return (first < 6 and first + 1) or 0
+
+    def can_add_content(self):
+        return api.user.has_permission('Add portal content', obj=self.context)
