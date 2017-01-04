@@ -49,10 +49,13 @@ class CalendarJSONSource(object):
         event = brain.getObject()
         editable = api.user.has_permission('Edit', obj=event)
 
-        if brain.end - brain.start > 1.0:
-            allday = True
-        else:
-            allday = False
+        # The default source marks an event as all day if it is longer than
+        # one day. Marking an event as all day in ftw.contentpage will set
+        # the times to 00:00 and 23:59. If those times are on the same
+        # date they will not be recognised as all day because thats only a
+        # 0.999.. day. This check will mark those events as all day.
+        allday = (brain.end - brain.start > 0.99)
+
         return {"id": "UID_%s" % (brain.UID),
                 "title": brain.Title,
                 "start": brain.start.ISO8601(),
