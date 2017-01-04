@@ -67,7 +67,7 @@
       />
 
   <browser:page
-      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      for="*"
       name="ftwcalendar_config.js"
       class=".calendar_config.CalendarConfigView"
       template="calendar_config.pt"

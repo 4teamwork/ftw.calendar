@@ -15,8 +15,7 @@ class CalendarConfigView(BrowserView):
         """
         Returns the first day of the week as an integer.
         """
-
-        calendar_tool = getToolByName(self.context, 'portal_calendar')
+        calendar_tool = getToolByName(api.portal.get(), 'portal_calendar')
         first = calendar_tool.getFirstWeekDay()
         return (first < 6 and first + 1) or 0
 
