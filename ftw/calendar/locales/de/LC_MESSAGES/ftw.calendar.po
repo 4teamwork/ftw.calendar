@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ftw.calendar\n"
-"POT-Creation-Date: 2017-01-05 08:23+0000\n"
+"POT-Creation-Date: 2017-01-05 08:47+0000\n"
 "PO-Revision-Date: 2010-08-18 11:33+0000\n"
 "Last-Translator: Radim Novotny <novotny.radim@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
