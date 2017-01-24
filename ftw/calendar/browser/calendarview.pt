@@ -3,21 +3,21 @@
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="ftw.calendar">
   <metal:javascriptslot fill-slot="javascript_head_slot">
-    <script type="text/javascript" 
-        tal:attributes="src string:${portal_url}/ftwcalendar_config.js"></script>
+    <script type="text/javascript"
+        tal:attributes="src string:./ftwcalendar_config.js"></script>
   </metal:javascriptslot>
 <body>
     <div metal:fill-slot="main">
         <tal:main-macro metal:define-macro="main">
             <metal:body define-macro="body_macro"
                         tal:define="templateId template/getId">
-            
+
                 <div tal:replace="structure provider:plone.abovecontenttitle" />
 
                 <h1 class="documentFirstHeading" tal:content="context/Title">
                     Title
                 </h1>
-                
+
                 <div tal:replace="structure provider:plone.belowcontenttitle" />
 
                 <p class="documentDescription" tal:content="context/Description">

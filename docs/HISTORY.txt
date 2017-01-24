@@ -1,11 +1,21 @@
 Changelog
 =========
 
-2.1.3 (unreleased)
+3.0.0 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Drop Plone 4.1 support.
+  [lknoepfel]
 
+- Add functionality to add events by clicking on a date in the calendar.
+  There is no default implementation. Products have to implement it for their event types.
+  [lknoepfel]
+
+- Check edit permission on event to enable drag&drop.
+  [lknoepfel]
+
+- Fixed bug where date range was not applied.
+  [lknoepfel]
 
 2.1.2 (2016-11-17)
 ------------------

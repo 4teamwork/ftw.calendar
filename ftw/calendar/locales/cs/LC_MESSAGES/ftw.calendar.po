@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ftw.calendar\n"
-"POT-Creation-Date: 2016-07-07 12:40+0000\n"
+"POT-Creation-Date: 2017-01-05 08:47+0000\n"
 "PO-Revision-Date: 2010-09-10 12:33+0100\n"
 "Last-Translator: Radim Novotny <novotny.radim@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,252 +24,257 @@ msgid "Calendar view based on FullCalendar."
 msgstr ""
 
 #. Default: "All day"
-#: ./ftw/calendar/browser/calendar_config.pt:74
+#: ./ftw/calendar/browser/calendar_config.pt:73
 msgid "all_day"
 msgstr "Celý den"
 
 #. Default: "h:mm tt"
-#: ./ftw/calendar/browser/calendar_config.pt:72
+#: ./ftw/calendar/browser/calendar_config.pt:71
 msgid "axis_format"
 msgstr "H(:mm)"
 
 #. Default: "day"
-#: ./ftw/calendar/browser/calendar_config.pt:56
+#: ./ftw/calendar/browser/calendar_config.pt:55
 msgid "button_day"
 msgstr "den"
 
 #. Default: "month"
-#: ./ftw/calendar/browser/calendar_config.pt:54
+#: ./ftw/calendar/browser/calendar_config.pt:53
 msgid "button_month"
 msgstr "měsíc"
 
 #. Default: "today"
-#: ./ftw/calendar/browser/calendar_config.pt:53
+#: ./ftw/calendar/browser/calendar_config.pt:52
 msgid "button_today"
 msgstr "dnes"
 
 #. Default: "week"
-#: ./ftw/calendar/browser/calendar_config.pt:55
+#: ./ftw/calendar/browser/calendar_config.pt:54
 msgid "button_week"
 msgstr "týden"
 
 #. Default: "ddd"
-#: ./ftw/calendar/browser/calendar_config.pt:64
+#: ./ftw/calendar/browser/calendar_config.pt:63
 msgid "column_month"
 msgstr "ddd"
 
 #. Default: "ddd M/d"
-#: ./ftw/calendar/browser/calendar_config.pt:65
+#: ./ftw/calendar/browser/calendar_config.pt:64
 msgid "column_week"
 msgstr "ddd d.M."
 
 #. Default: "Sunday"
-#: ./ftw/calendar/browser/calendar_config.pt:34
+#: ./ftw/calendar/browser/calendar_config.pt:33
 msgid "day_1"
 msgstr "Neděle"
 
 #. Default: "Monday"
-#: ./ftw/calendar/browser/calendar_config.pt:35
+#: ./ftw/calendar/browser/calendar_config.pt:34
 msgid "day_2"
 msgstr "Pondělí"
 
 #. Default: "Tuesday"
-#: ./ftw/calendar/browser/calendar_config.pt:36
+#: ./ftw/calendar/browser/calendar_config.pt:35
 msgid "day_3"
 msgstr "Úterý"
 
 #. Default: "Wednesday"
-#: ./ftw/calendar/browser/calendar_config.pt:37
+#: ./ftw/calendar/browser/calendar_config.pt:36
 msgid "day_4"
 msgstr "Středa"
 
 #. Default: "Thursday"
-#: ./ftw/calendar/browser/calendar_config.pt:38
+#: ./ftw/calendar/browser/calendar_config.pt:37
 msgid "day_5"
 msgstr "Čtvrtek"
 
 #. Default: "Friday"
-#: ./ftw/calendar/browser/calendar_config.pt:39
+#: ./ftw/calendar/browser/calendar_config.pt:38
 msgid "day_6"
 msgstr "Pátek"
 
 #. Default: "Saturday"
-#: ./ftw/calendar/browser/calendar_config.pt:40
+#: ./ftw/calendar/browser/calendar_config.pt:39
 msgid "day_7"
 msgstr "Sobota"
 
 #. Default: "Sun"
-#: ./ftw/calendar/browser/calendar_config.pt:41
+#: ./ftw/calendar/browser/calendar_config.pt:40
 msgid "day_short_1"
 msgstr "Ne"
 
 #. Default: "Mon"
-#: ./ftw/calendar/browser/calendar_config.pt:42
+#: ./ftw/calendar/browser/calendar_config.pt:41
 msgid "day_short_2"
 msgstr "Po"
 
 #. Default: "Tues"
-#: ./ftw/calendar/browser/calendar_config.pt:43
+#: ./ftw/calendar/browser/calendar_config.pt:42
 msgid "day_short_3"
 msgstr "Út"
 
 #. Default: "Wed"
-#: ./ftw/calendar/browser/calendar_config.pt:44
+#: ./ftw/calendar/browser/calendar_config.pt:43
 msgid "day_short_4"
 msgstr "St"
 
 #. Default: "Thurs"
-#: ./ftw/calendar/browser/calendar_config.pt:45
+#: ./ftw/calendar/browser/calendar_config.pt:44
 msgid "day_short_5"
 msgstr "Čt"
 
 #. Default: "Fri"
-#: ./ftw/calendar/browser/calendar_config.pt:46
+#: ./ftw/calendar/browser/calendar_config.pt:45
 msgid "day_short_6"
 msgstr "Pá"
 
 #. Default: "Sat"
-#: ./ftw/calendar/browser/calendar_config.pt:47
+#: ./ftw/calendar/browser/calendar_config.pt:46
 msgid "day_short_7"
 msgstr "So"
 
+#. Default: "Please insert a title for the new event."
+#: ./ftw/calendar/browser/calendar_config.pt:82
+msgid "insert_title_prompt"
+msgstr ""
+
 #. Default: "January"
-#: ./ftw/calendar/browser/calendar_config.pt:10
+#: ./ftw/calendar/browser/calendar_config.pt:9
 msgid "month_1"
 msgstr "Leden"
 
 #. Default: "October"
-#: ./ftw/calendar/browser/calendar_config.pt:19
+#: ./ftw/calendar/browser/calendar_config.pt:18
 msgid "month_10"
 msgstr "Říjen"
 
 #. Default: "November"
-#: ./ftw/calendar/browser/calendar_config.pt:20
+#: ./ftw/calendar/browser/calendar_config.pt:19
 msgid "month_11"
 msgstr "Listopad"
 
 #. Default: "December"
-#: ./ftw/calendar/browser/calendar_config.pt:21
+#: ./ftw/calendar/browser/calendar_config.pt:20
 msgid "month_12"
 msgstr "Prosinec"
 
 #. Default: "February"
-#: ./ftw/calendar/browser/calendar_config.pt:11
+#: ./ftw/calendar/browser/calendar_config.pt:10
 msgid "month_2"
 msgstr "Únor"
 
 #. Default: "March"
-#: ./ftw/calendar/browser/calendar_config.pt:12
+#: ./ftw/calendar/browser/calendar_config.pt:11
 msgid "month_3"
 msgstr "Březen"
 
 #. Default: "April"
-#: ./ftw/calendar/browser/calendar_config.pt:13
+#: ./ftw/calendar/browser/calendar_config.pt:12
 msgid "month_4"
 msgstr "Duben"
 
 #. Default: "May"
-#: ./ftw/calendar/browser/calendar_config.pt:14
+#: ./ftw/calendar/browser/calendar_config.pt:13
 msgid "month_5"
 msgstr "Květen"
 
 #. Default: "June"
-#: ./ftw/calendar/browser/calendar_config.pt:15
+#: ./ftw/calendar/browser/calendar_config.pt:14
 msgid "month_6"
 msgstr "Červen"
 
 #. Default: "July"
-#: ./ftw/calendar/browser/calendar_config.pt:16
+#: ./ftw/calendar/browser/calendar_config.pt:15
 msgid "month_7"
 msgstr "Červenec"
 
 #. Default: "August"
-#: ./ftw/calendar/browser/calendar_config.pt:17
+#: ./ftw/calendar/browser/calendar_config.pt:16
 msgid "month_8"
 msgstr "Srpen"
 
 #. Default: "September"
-#: ./ftw/calendar/browser/calendar_config.pt:18
+#: ./ftw/calendar/browser/calendar_config.pt:17
 msgid "month_9"
 msgstr "Září"
 
 #. Default: "Jan"
-#: ./ftw/calendar/browser/calendar_config.pt:22
+#: ./ftw/calendar/browser/calendar_config.pt:21
 msgid "month_short_1"
 msgstr "Led"
 
 #. Default: "Oct"
-#: ./ftw/calendar/browser/calendar_config.pt:31
+#: ./ftw/calendar/browser/calendar_config.pt:30
 msgid "month_short_10"
 msgstr "Říj"
 
 #. Default: "Nov"
-#: ./ftw/calendar/browser/calendar_config.pt:32
+#: ./ftw/calendar/browser/calendar_config.pt:31
 msgid "month_short_11"
 msgstr "Lis"
 
 #. Default: "Dec"
-#: ./ftw/calendar/browser/calendar_config.pt:33
+#: ./ftw/calendar/browser/calendar_config.pt:32
 msgid "month_short_12"
 msgstr "Pro"
 
 #. Default: "Feb"
-#: ./ftw/calendar/browser/calendar_config.pt:23
+#: ./ftw/calendar/browser/calendar_config.pt:22
 msgid "month_short_2"
 msgstr "Úno"
 
 #. Default: "Mar"
-#: ./ftw/calendar/browser/calendar_config.pt:24
+#: ./ftw/calendar/browser/calendar_config.pt:23
 msgid "month_short_3"
 msgstr "Bře"
 
 #. Default: "Apr"
-#: ./ftw/calendar/browser/calendar_config.pt:25
+#: ./ftw/calendar/browser/calendar_config.pt:24
 msgid "month_short_4"
 msgstr "Dub"
 
 #. Default: "May"
-#: ./ftw/calendar/browser/calendar_config.pt:26
+#: ./ftw/calendar/browser/calendar_config.pt:25
 msgid "month_short_5"
 msgstr "Kvě"
 
 #. Default: "June"
-#: ./ftw/calendar/browser/calendar_config.pt:27
+#: ./ftw/calendar/browser/calendar_config.pt:26
 msgid "month_short_6"
 msgstr "Čer"
 
 #. Default: "July"
-#: ./ftw/calendar/browser/calendar_config.pt:28
+#: ./ftw/calendar/browser/calendar_config.pt:27
 msgid "month_short_7"
 msgstr "Čvc"
 
 #. Default: "Aug"
-#: ./ftw/calendar/browser/calendar_config.pt:29
+#: ./ftw/calendar/browser/calendar_config.pt:28
 msgid "month_short_8"
 msgstr "Srp"
 
 #. Default: "Sept"
-#: ./ftw/calendar/browser/calendar_config.pt:30
+#: ./ftw/calendar/browser/calendar_config.pt:29
 msgid "month_short_9"
 msgstr "Zář"
 
 #. Default: "h:mm tt"
-#: ./ftw/calendar/browser/calendar_config.pt:77
+#: ./ftw/calendar/browser/calendar_config.pt:76
 msgid "time_format"
 msgstr "H(:mm)"
 
 #. Default: "dddd, MMM d, yyyy"
-#: ./ftw/calendar/browser/calendar_config.pt:61
+#: ./ftw/calendar/browser/calendar_config.pt:60
 msgid "title_day"
 msgstr "dddd, d. MMMM yyyy"
 
 #. Default: "MMMM yyyy"
-#: ./ftw/calendar/browser/calendar_config.pt:59
+#: ./ftw/calendar/browser/calendar_config.pt:58
 msgid "title_month"
 msgstr "MMMM yyyy"
 
 #. Default: "MMM d[ yyyy]{ - [ MMM] d yyyy}"
-#: ./ftw/calendar/browser/calendar_config.pt:60
+#: ./ftw/calendar/browser/calendar_config.pt:59
 msgid "title_week"
 msgstr "d.[ MMMM][ yyyy]{ - d. MMMM yyyy}"
 

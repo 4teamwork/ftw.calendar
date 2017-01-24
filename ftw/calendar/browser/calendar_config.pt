@@ -77,6 +77,14 @@ $(document).ready(function() {
         eventRender: function(event, element) {
             element.find("a").attr('title', event.description);
         },
+        <span tal:omit-tag="" tal:condition="view/can_add_content">
+        dayClick: function(date, allDay, jsEvent, view) {
+            var title = prompt('<tal:trans i18n:translate="insert_title_prompt">Please insert a title for the new event.</tal:trans>');
+            if (title == null || title.length == 0) return;
+
+            window.location.href = "./ftwcalendar_add?" + $.param({'title': title, 'startdate': Math.round(date.getTime() / 1000)})
+        },
+        </span>
         eventDrop: function(event, dayDelta, minuteDelta) {
             $.ajax({
                 type: 'POST',

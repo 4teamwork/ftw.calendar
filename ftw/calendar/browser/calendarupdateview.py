@@ -1,5 +1,7 @@
 from DateTime import DateTime
+from ftw.calendar.browser.interfaces import IFtwCalendarEventCreator
 from ftw.calendar.browser.interfaces import IFtwCalendarJSONSourceProvider
+from plone import api
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from zope.component import getMultiAdapter
@@ -40,18 +42,21 @@ class CalendarJSONSource(object):
             return catalog(
                 portal_type=portal_calendar.getCalendarTypes(),
                 path={'depth': -1,
-                      'query': '/'.join(self.context.getPhysicalPath())}
+                      'query': '/'.join(self.context.getPhysicalPath())},
+                **args
             )
 
     def generate_source_dict_from_brain(self, brain):
-        if self.memberid in brain.Creator:
-            editable = True
-        else:
-            editable = False
-        if brain.end - brain.start > 1.0:
-            allday = True
-        else:
-            allday = False
+        event = brain.getObject()
+        editable = api.user.has_permission('Edit', obj=event)
+
+        # The default source marks an event as all day if it is longer than
+        # one day. Marking an event as all day in ftw.contentpage will set
+        # the times to 00:00 and 23:59. If those times are on the same
+        # date they will not be recognised as all day because thats only a
+        # 0.999.. day. This check will mark those events as all day.
+        allday = (brain.end - brain.start > 0.99)
+
         return {"id": "UID_%s" % (brain.UID),
                 "title": brain.Title,
                 "start": brain.start.ISO8601(),
@@ -60,7 +65,7 @@ class CalendarJSONSource(object):
                 "editable": editable,
                 "allDay": allday,
                 "className": "state-" + str(brain.review_state) +
-                (editable and " editable" or ""),
+                             (editable and " editable" or ""),
                 "description": brain.Description}
 
 
@@ -81,7 +86,6 @@ class CalendarupdateView(BrowserView):
 
 
 class CalendarDropView(BrowserView):
-
     def __call__(self):
         request = self.context.REQUEST
 
@@ -94,7 +98,7 @@ class CalendarDropView(BrowserView):
         obj = brains[0].getObject()
         startDate, endDate = obj.startDate, obj.endDate
         dayDelta, minuteDelta = float(request.get('dayDelta')), \
-            float(request.get('minuteDelta'))
+                                float(request.get('minuteDelta'))
 
         startDate = startDate + dayDelta + minuteDelta / 1440.0
         endDate = endDate + dayDelta + minuteDelta / 1440.0
@@ -106,7 +110,6 @@ class CalendarDropView(BrowserView):
 
 
 class CalendarResizeView(BrowserView):
-
     def __call__(self):
         request = self.context.REQUEST
         event_uid = request.get('event')
@@ -116,10 +119,26 @@ class CalendarResizeView(BrowserView):
         obj = brains[0].getObject()
         endDate = obj.endDate
         dayDelta, minuteDelta = float(request.get('dayDelta')), \
-            float(request.get('minuteDelta'))
+                                float(request.get('minuteDelta'))
 
         endDate = endDate + dayDelta + minuteDelta / 1440.0
 
         obj.setEndDate(endDate)
         obj.reindexObject()
         return True
+
+
+class CalendarAddView(BrowserView):
+    def __call__(self):
+        request = self.context.REQUEST
+        title = request.get('title')
+        start_date = DateTime(int(request.get('startdate')))
+
+        if not title or not start_date:
+            raise ValueError()
+
+        eventCreator = getMultiAdapter((self.context, request),
+                                       IFtwCalendarEventCreator)
+        event = eventCreator.createEvent(title, start_date)
+
+        self.request.RESPONSE.redirect(event.absolute_url() + '/edit')
