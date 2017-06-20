@@ -4,7 +4,7 @@ Changelog
 3.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Remove dependency on ftw.testing[splinter] (has been dropped in ftw.testing). [lgraf]
 
 
 3.0.0 (2017-01-24)

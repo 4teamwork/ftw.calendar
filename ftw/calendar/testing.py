@@ -1,13 +1,13 @@
 from ftw.builder.testing import BUILDER_LAYER
 from ftw.builder.testing import functional_session_factory
 from ftw.builder.testing import set_builder_session_factory
-from ftw.testing import FunctionalSplinterTesting
 from plone.app.testing import applyProfile
+from plone.app.testing import FunctionalTesting
 from plone.app.testing import IntegrationTesting
 from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import PloneSandboxLayer
 from zope.configuration import xmlconfig
-import ftw.calendar.tests.builders
+import ftw.calendar.tests.builders  # noqa
 
 
 class FtwCalendarLayer(PloneSandboxLayer):
@@ -27,7 +27,7 @@ class FtwCalendarLayer(PloneSandboxLayer):
 FTW_CALENDAR_FIXTURE = FtwCalendarLayer()
 FTW_CALENDAR_INTEGRATION_TESTING = IntegrationTesting(
     bases=(FTW_CALENDAR_FIXTURE, ), name="FtwCalendar:Integration")
-FTW_CALENDAR_FUNCTIONAL_TESTING = FunctionalSplinterTesting(
+FTW_CALENDAR_FUNCTIONAL_TESTING = FunctionalTesting(
     bases=(FTW_CALENDAR_FIXTURE,
            set_builder_session_factory(functional_session_factory)),
     name="FtwCalendar:Functional")

@@ -3,7 +3,7 @@ import os
 
 version = '3.0.1.dev0'
 
-tests_require = ['ftw.testing [splinter]',
+tests_require = ['ftw.testing',
                  'ftw.builder',
                  'plone.app.testing',
                  'ftw.testbrowser',
