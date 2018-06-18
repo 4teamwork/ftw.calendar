@@ -1,4 +1,5 @@
 from DateTime import DateTime
+from datetime import timedelta
 from ftw.calendar.browser.interfaces import IFtwCalendarEventCreator
 from ftw.calendar.browser.interfaces import IFtwCalendarJSONSourceProvider
 from plone import api
@@ -73,7 +74,10 @@ class CalendarJSONSource(object):
         # the times to 00:00 and 23:59. If those times are on the same
         # date they will not be recognised as all day because thats only a
         # 0.999.. day. This check will mark those events as all day.
-        allday = (brain.end - brain.start > 0.99)
+        duration = brain.end - brain.start
+        if isinstance(duration, timedelta):
+            duration = duration.seconds / 60. / 60.
+        allday = duration > 0.99
 
         return {"id": "UID_%s" % (brain.UID),
                 "title": title,
