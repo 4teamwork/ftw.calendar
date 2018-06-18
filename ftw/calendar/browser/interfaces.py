@@ -23,3 +23,19 @@ class IFtwCalendarJSONSourceProvider(Interface):
         """ Reads the relevant information from the brain and generates a dict
             based on thos informations. This dict is later converted to JSON.
         """
+
+
+class IFtwCalendarEventCreator(Interface):
+
+    def getEventType():
+        """ Get the calendar event type name to be adden when
+            user clicks in calendar.
+
+        @return: event type as string
+        """
+
+    def createEvent(title, start_date):
+        """ Creates a calendar event in the given context and data.
+
+        @return: the newly created event
+        """

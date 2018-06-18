@@ -1,10 +1,35 @@
 Changelog
 =========
 
-2.1.2 (unreleased)
+3.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Remove dependency on ftw.testing[splinter] (has been dropped in ftw.testing). [lgraf]
+
+
+3.0.0 (2017-01-24)
+------------------
+
+- Drop Plone 4.1 support.
+  [lknoepfel]
+
+- Add functionality to add events by clicking on a date in the calendar.
+  There is no default implementation. Products have to implement it for their event types.
+  [lknoepfel]
+
+- Check edit permission on event to enable drag&drop.
+  [lknoepfel]
+
+- Fixed bug where date range was not applied.
+  [lknoepfel]
+
+2.1.2 (2016-11-17)
+------------------
+
+- Fix jQuery / Diazo issue: set proper response headers. [jone]
+
+- Added german translation for menuitem.
+  [lknoepfel]
 
 
 2.1.1 (2015-10-23)

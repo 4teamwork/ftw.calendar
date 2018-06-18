@@ -1,9 +1,9 @@
 from setuptools import setup, find_packages
 import os
 
-version = '2.1.2.dev0'
+version = '3.0.1.dev0'
 
-tests_require = ['ftw.testing [splinter]',
+tests_require = ['ftw.testing',
                  'ftw.builder',
                  'plone.app.testing',
                  'ftw.testbrowser',
@@ -19,7 +19,6 @@ setup(name='ftw.calendar',
       # http://pypi.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
         "Framework :: Plone",
-        'Framework :: Plone :: 4.1',
         'Framework :: Plone :: 4.2',
         "Programming Language :: Python",
         ],
@@ -38,6 +37,7 @@ setup(name='ftw.calendar',
           'Plone',
           'setuptools',
           'simplejson',
+          'plone.api',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
