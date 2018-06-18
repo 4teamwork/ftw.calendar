@@ -40,11 +40,9 @@ class CalendarJSONSource(object):
             portal_calendar = getToolByName(self.context, 'portal_calendar',
                                             None)
             if portal_calendar:
-                portal_type = portal_calendar.getCalendarTypes()
-            else:
-                portal_type = None
+                args['portal_type'] = portal_calendar.getCalendarTypes()
+
             return catalog(
-                portal_type=portal_type,
                 path={'depth': -1,
                       'query': '/'.join(self.context.getPhysicalPath())},
                 **args
