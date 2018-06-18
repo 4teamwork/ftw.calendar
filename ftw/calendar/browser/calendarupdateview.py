@@ -1,4 +1,3 @@
-import datetime
 from DateTime import DateTime
 from ftw.calendar.browser.interfaces import IFtwCalendarEventCreator
 from ftw.calendar.browser.interfaces import IFtwCalendarJSONSourceProvider
@@ -68,11 +67,6 @@ class CalendarJSONSource(object):
         start = getattr(start, iso)()
         end = getattr(end, iso)()
 
-        if isinstance(brain.end - brain.start, float):
-            delta = 1.0
-        else:
-            delta = datetime.timedelta(days=1)
-
         event = brain.getObject()
         editable = api.user.has_permission('Edit', obj=event)
 
@@ -90,8 +84,8 @@ class CalendarJSONSource(object):
                 "url": brain.getURL(),
                 "editable": editable,
                 "allDay": allday,
-                "className": "state-" + str(brain.review_state) +
-                (editable and " editable" or ""),
+                "className": "state-" + str(brain.review_state)
+                + (editable and " editable" or ""),
                 "description": description}
 
 

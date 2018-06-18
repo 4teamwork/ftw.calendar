@@ -1,12 +1,9 @@
 from ftw.calendar.browser.interfaces import IFtwCalendarEventCreator
-from plone import api
 from Products.CMFCore.utils import getToolByName
-from Products.Five import BrowserView
 from Products.Five import BrowserView
 from zope.component import ComponentLookupError
 from zope.component import getMultiAdapter
 from zope.component.hooks import getSite
-
 
 
 class CalendarConfigView(BrowserView):
