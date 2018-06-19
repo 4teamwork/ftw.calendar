@@ -6,6 +6,7 @@ from plone.app.testing import FunctionalTesting
 from plone.app.testing import IntegrationTesting
 from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import PloneSandboxLayer
+from Products.CMFPlone.utils import getFSVersionTuple
 from zope.configuration import xmlconfig
 import ftw.calendar.tests.builders  # noqa
 
@@ -22,6 +23,9 @@ class FtwCalendarLayer(PloneSandboxLayer):
     def setUpPloneSite(self, portal):
         # Install into Plone site using portal_setup
         applyProfile(portal, 'ftw.calendar:default')
+
+        if getFSVersionTuple() > (5, ):
+            applyProfile(portal, 'plone.app.contenttypes:default')
 
 
 FTW_CALENDAR_FIXTURE = FtwCalendarLayer()

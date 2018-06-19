@@ -4,6 +4,7 @@ Changelog
 3.0.1 (unreleased)
 ------------------
 
+- Add support for Plone 5.1. [cguardia, jone]
 - Remove dependency on ftw.testing[splinter] (has been dropped in ftw.testing). [lgraf]
 
 

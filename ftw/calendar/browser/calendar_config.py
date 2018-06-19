@@ -1,9 +1,9 @@
 from ftw.calendar.browser.interfaces import IFtwCalendarEventCreator
-from plone import api
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from zope.component import ComponentLookupError
 from zope.component import getMultiAdapter
+from zope.component.hooks import getSite
 
 
 class CalendarConfigView(BrowserView):
@@ -19,8 +19,11 @@ class CalendarConfigView(BrowserView):
         """
         Returns the first day of the week as an integer.
         """
-        calendar_tool = getToolByName(api.portal.get(), 'portal_calendar')
-        first = calendar_tool.getFirstWeekDay()
+        calendar_tool = getToolByName(self.context, 'portal_calendar', None)
+        if calendar_tool:
+            first = calendar_tool.getFirstWeekDay()
+        else:
+            first = getSite().portal_registry['plone.first_weekday']
         return (first < 6 and first + 1) or 0
 
     def can_add_content(self):

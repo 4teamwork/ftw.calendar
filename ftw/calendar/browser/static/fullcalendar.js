@@ -4666,36 +4666,36 @@ function setOuterHeight(element, height, includeMargins) {
 }
 
 
-// TODO: curCSS has been deprecated
+// TODO: css has been deprecated
 
 
 function hsides(_element, includeMargins) {
-	return (parseFloat($.curCSS(_element, 'paddingLeft', true)) || 0) +
-	       (parseFloat($.curCSS(_element, 'paddingRight', true)) || 0) +
-	       (parseFloat($.curCSS(_element, 'borderLeftWidth', true)) || 0) +
-	       (parseFloat($.curCSS(_element, 'borderRightWidth', true)) || 0) +
+	return (parseFloat($.css(_element, 'paddingLeft', true)) || 0) +
+	       (parseFloat($.css(_element, 'paddingRight', true)) || 0) +
+	       (parseFloat($.css(_element, 'borderLeftWidth', true)) || 0) +
+	       (parseFloat($.css(_element, 'borderRightWidth', true)) || 0) +
 	       (includeMargins ? hmargins(_element) : 0);
 }
 
 
 function hmargins(_element) {
-	return (parseFloat($.curCSS(_element, 'marginLeft', true)) || 0) +
-	       (parseFloat($.curCSS(_element, 'marginRight', true)) || 0);
+	return (parseFloat($.css(_element, 'marginLeft', true)) || 0) +
+	       (parseFloat($.css(_element, 'marginRight', true)) || 0);
 }
 
 
 function vsides(_element, includeMargins) {
-	return (parseFloat($.curCSS(_element, 'paddingTop', true)) || 0) +
-	       (parseFloat($.curCSS(_element, 'paddingBottom', true)) || 0) +
-	       (parseFloat($.curCSS(_element, 'borderTopWidth', true)) || 0) +
-	       (parseFloat($.curCSS(_element, 'borderBottomWidth', true)) || 0) +
+	return (parseFloat($.css(_element, 'paddingTop', true)) || 0) +
+	       (parseFloat($.css(_element, 'paddingBottom', true)) || 0) +
+	       (parseFloat($.css(_element, 'borderTopWidth', true)) || 0) +
+	       (parseFloat($.css(_element, 'borderBottomWidth', true)) || 0) +
 	       (includeMargins ? vmargins(_element) : 0);
 }
 
 
 function vmargins(_element) {
-	return (parseFloat($.curCSS(_element, 'marginTop', true)) || 0) +
-	       (parseFloat($.curCSS(_element, 'marginBottom', true)) || 0);
+	return (parseFloat($.css(_element, 'marginTop', true)) || 0) +
+	       (parseFloat($.css(_element, 'marginBottom', true)) || 0);
 }
 
 
