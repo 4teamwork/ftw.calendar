@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.0.1 (unreleased)
+3.1.0 (2018-06-19)
 ------------------
 
 - Add support for Plone 5.1. [cguardia, jone]
