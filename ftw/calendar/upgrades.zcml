@@ -1,0 +1,27 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    xmlns:upgrade-step="http://namespaces.zope.org/ftw.upgrade"
+    i18n_domain="ftw.calendar">
+
+  <include package="ftw.upgrade" file="meta.zcml" />
+
+  <upgrade-step:directory
+    profile="ftw.calendar:general"
+    directory="upgrades/base"
+    />
+
+  <!-- Plone 4 -->
+  <upgrade-step:directory
+    zcml:condition="not-have plone-5"
+    profile="ftw.calendar:default"
+    directory="upgrades/plone4"
+    />
+
+  <!-- Plone 5 -->
+  <upgrade-step:directory
+    zcml:condition="have plone-5"
+    profile="ftw.calendar:default"
+    directory="upgrades/plone5"
+    />
+</configure>
