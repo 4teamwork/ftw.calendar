@@ -5,6 +5,7 @@ Changelog
 ------------------
 
 - Fix double minifcation errors in fullcalendar js [Nachtalb]
+- Drop Plone 4.2 support [Nachtalb]
 
 
 3.1.0 (2018-06-19)
