@@ -9,6 +9,7 @@
   <i18n:registerTranslations directory="locales" />
 
   <include file="profiles.zcml" />
+  <include file="upgrades.zcml" />
   <include package=".browser" />
 
 </configure>

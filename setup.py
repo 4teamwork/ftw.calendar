@@ -19,7 +19,8 @@ setup(name='ftw.calendar',
       # http://pypi.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
         "Framework :: Plone",
-        'Framework :: Plone :: 4.2',
+        'Framework :: Plone :: 4.3',
+        'Framework :: Plone :: 5.1',
         "Programming Language :: Python",
         ],
       keywords='',
@@ -36,6 +37,7 @@ setup(name='ftw.calendar',
       install_requires=[
           'Plone',
           'setuptools',
+          'ftw.upgrade',
           'simplejson',
           'plone.api',
           # -*- Extra requirements: -*-

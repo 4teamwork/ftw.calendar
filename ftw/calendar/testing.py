@@ -16,9 +16,13 @@ class FtwCalendarLayer(PloneSandboxLayer):
     defaultBases = (PLONE_FIXTURE, BUILDER_LAYER)
 
     def setUpZope(self, app, configurationContext):
-        import ftw.calendar
-        xmlconfig.file('configure.zcml', ftw.calendar,
-                       context=configurationContext)
+        xmlconfig.string(
+            '<configure xmlns="http://namespaces.zope.org/zope">'
+            '  <include package="z3c.autoinclude" file="meta.zcml" />'
+            '  <includePlugins package="plone" />'
+            '  <includePluginsOverrides package="plone" />'
+            '</configure>',
+            context=configurationContext)
 
     def setUpPloneSite(self, portal):
         # Install into Plone site using portal_setup
