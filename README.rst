@@ -140,7 +140,7 @@ Many thanks to Adam Shaw for jq.fullcalendar.
 Compatibility
 -------------
 
-Runs with `Plone <http://www.plone.org/>`_ `4.3`.
+Runs with `Plone <http://www.plone.org/>`_ `4.3`, `5.1`.
 
 
 Links
