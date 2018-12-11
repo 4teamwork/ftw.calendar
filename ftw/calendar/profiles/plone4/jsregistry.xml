@@ -2,6 +2,6 @@
 <object name="portal_javascripts" meta_type="JavaScripts Registry">
  <javascript authenticated="False" bundle="default" cacheable="True"
     compression="safe" conditionalcomment="" cookable="True" enabled="True"
-    expression="" id="++resource++ftw.calendar/fullcalendar.min.js" inline="False"/>
+    expression="" id="++resource++ftw.calendar/fullcalendar.js" inline="False"/>
 </object>
 
