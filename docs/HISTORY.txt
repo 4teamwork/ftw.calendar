@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.1.2 (unreleased)
+3.1.2 (2019-09-12)
 ------------------
 
 - Add missing Upgradestep for minification errors in fullcalendar js fix [Nachtalb]
