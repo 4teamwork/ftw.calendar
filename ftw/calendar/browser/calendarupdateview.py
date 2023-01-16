@@ -6,12 +6,12 @@ from plone import api
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from zope.component import getMultiAdapter
-from zope.interface import implements
+from zope.interface import implementer
 import simplejson as json
 
 
+@implementer(IFtwCalendarJSONSourceProvider)
 class CalendarJSONSource(object):
-    implements(IFtwCalendarJSONSourceProvider)
 
     def __init__(self, context, request):
         self.context = context
